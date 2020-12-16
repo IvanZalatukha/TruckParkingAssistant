@@ -1,7 +1,7 @@
 package dao.impl;
 
 import dao.CRUDRepository;
-import dao.Connector;
+import dao.pool.ConnectionPool;
 import domain.Parking;
 
 import java.sql.Connection;
@@ -19,7 +19,15 @@ public class ImplParkingCRUD implements CRUDRepository {
     private static final String DELETE = "DELETE FROM parking WHERE id=?";
     private static final String UPDATE = "UPDATE parking SET name=?, spots_total=?, spots_currently=?," +
             "coordinate_latitude=?, coordinate_longitude=? WHERE id=?";
-    private static final Connection connection = Connector.getConnection();
+    private static Connection connection = null;
+
+    static {
+        try {
+            connection = ConnectionPool.getInstance().getConnection();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Parking findById(int id) {
 

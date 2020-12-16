@@ -1,4 +1,4 @@
-package pool;
+package dao.pool;
 
 import dao.DatabaseSettings;
 

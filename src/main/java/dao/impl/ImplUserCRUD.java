@@ -1,10 +1,9 @@
 package dao.impl;
 
 import dao.CRUDRepository;
-import dao.Connector;
-import domain.Parking;
 import domain.Role;
 import domain.User;
+import dao.pool.ConnectionPool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +20,15 @@ public class ImplUserCRUD implements CRUDRepository {
     private static final String DELETE = "DELETE FROM app_user WHERE id=?";
     private static final String UPDATE = "UPDATE app_user SET login=?, password=?, first_name=?," +
             "last_name=?, phone_number=?, role_id=? WHERE id=?";
-    private static final Connection connection = Connector.getConnection();
+    private static Connection connection = null;
+
+    static {
+        try {
+            connection = ConnectionPool.getInstance().getConnection();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     public User findById(int id) {
 
