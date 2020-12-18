@@ -121,7 +121,8 @@ public class DatabaseSettings {
     }
 
     public String getURL() {
-        return jdbc + host + ":" + port + "/" + dbName + "?useSSL=" + useSSL + "&useUnicode=" + useUnicode + "&serverTimezone=" + serverTimezone;
+        return jdbc + host + ":" + port + "/" + dbName + "?useSSL=" + useSSL + "&useUnicode=" +
+                useUnicode + "&serverTimezone=" + serverTimezone;
     }
 
 }

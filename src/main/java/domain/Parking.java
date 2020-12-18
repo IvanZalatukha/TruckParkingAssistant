@@ -1,6 +1,6 @@
 package domain;
 
-public class Parking {
+public class Parking implements Entity {
     private String name;
     private int spotsTotal;
     private int spotsCurrently;

@@ -1,6 +1,6 @@
 package domain;
 
-public class User {
+public class User implements Entity {
     private String login;
     private String password;
     private String firstName;
@@ -11,14 +11,12 @@ public class User {
     private int id;
     private static int currentID;
 
-    public User(String login, String password, String firstName, String lastName, long phoneNumber, Role role) {
+    public User(String login, String password, String firstName, String lastName, Role role) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
         this.role = role;
-        this.id = id;
         this.id = ++currentID;
     }
 
@@ -83,6 +81,11 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String getName() {
+        return getFirstName() + " " + getLastName();
     }
 
     public void setId(int id) {

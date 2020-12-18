@@ -10,7 +10,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class ConnectionPool {
     private static ConnectionPool instance;
-    private static DatabaseSettings settings = DatabaseSettings.getInstance();
+    private static final DatabaseSettings settings = DatabaseSettings.getInstance();
     private BlockingQueue<Connection> connections;
 
     private ConnectionPool() {
