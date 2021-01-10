@@ -1,6 +1,8 @@
 package domain;
 
-public enum Role {
+import java.io.Serializable;
+
+public enum Role implements Serializable {
     USER(1),
     ADMIN(2),
     WITHOUT_ROLE(3);

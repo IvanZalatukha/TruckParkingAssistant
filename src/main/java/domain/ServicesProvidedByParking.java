@@ -1,6 +1,8 @@
 package domain;
 
-public class ParkingServices {
+import java.io.Serializable;
+
+public class ServicesProvidedByParking implements Serializable {
     private boolean fence;
     private boolean security_cameras;
     private boolean wc;
@@ -17,9 +19,9 @@ public class ParkingServices {
     private boolean store;
     private boolean food;
 
-    public ParkingServices(boolean fence, boolean security_cameras, boolean wc, boolean shower, boolean guarded_parking,
-                           boolean lighting, boolean electricity, boolean water, boolean gas_station, boolean wifi,
-                           boolean lodging, boolean truck_service, boolean truck_wash, boolean store, boolean food) {
+    public ServicesProvidedByParking(boolean fence, boolean security_cameras, boolean wc, boolean shower, boolean guarded_parking,
+                                     boolean lighting, boolean electricity, boolean water, boolean gas_station, boolean wifi,
+                                     boolean lodging, boolean truck_service, boolean truck_wash, boolean store, boolean food) {
         this.fence = fence;
         this.security_cameras = security_cameras;
         this.wc = wc;

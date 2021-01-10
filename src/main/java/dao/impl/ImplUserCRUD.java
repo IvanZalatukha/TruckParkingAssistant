@@ -20,6 +20,7 @@ public class ImplUserCRUD implements CRUDRepository {
     private static final String DELETE = "DELETE FROM app_user WHERE id=?";
     private static final String UPDATE = "UPDATE app_user SET login=?, password=?, first_name=?," +
             "last_name=?, phone_number=?, role_id=? WHERE id=?";
+    private static final String FIND_BY_LOGIN = "SELECT * FROM app_user where LOGIN=?";
     private static Connection connection = null;
 
     static {
@@ -28,6 +29,15 @@ public class ImplUserCRUD implements CRUDRepository {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private static ImplUserCRUD instance;
+
+    public static ImplUserCRUD getInstance() {
+        if (instance == null) {
+            instance = new ImplUserCRUD();
+        }
+        return instance;
     }
 
     public User findById(int id) {
@@ -40,17 +50,30 @@ public class ImplUserCRUD implements CRUDRepository {
             if (resultStatement.next()) {
                 user = getUserFromRS(resultStatement);
             }
-            resultStatement.close();
-            preparedStatement.close();
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return user;
     }
 
+    public User findByLogin(String login){
+        User user = null;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_LOGIN);
+            preparedStatement.setString(1, login);
+            ResultSet resultStatement = preparedStatement.executeQuery();
+            if (resultStatement.next()) {
+                user = getUserFromRS(resultStatement);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
+
+    }
+
     @Override
-    public List findAll() {
+    public List<User> findAll() {
         List<User> list = new ArrayList<>();
         User user;
         try {
@@ -108,7 +131,7 @@ public class ImplUserCRUD implements CRUDRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
             preparedStatement.setInt(1, id);
             int i = preparedStatement.executeUpdate();
-            preparedStatement.close();
+
             if(i == 1) {
                 return true;
             }
@@ -132,7 +155,6 @@ public class ImplUserCRUD implements CRUDRepository {
             preparedStatement.setInt(6, Role.resolveIdByRole(user.getRole()));
             preparedStatement.setInt(7, user.getId());
             int i = preparedStatement.executeUpdate();
-            preparedStatement.close();
             if (i == 1) {
                 return true;
             }

@@ -1,7 +1,7 @@
 package dao;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 
@@ -93,11 +93,9 @@ public class DatabaseSettings {
     }
 
     private static DatabaseSettings init() {
-
-        FileInputStream inputStream;
         Properties properties = new Properties();
         try {
-            inputStream = new FileInputStream("src/main/resources/database.properties");
+            InputStream inputStream = DatabaseSettings.class.getClassLoader().getResourceAsStream("database.properties");
             properties.load(inputStream);
             String user = properties.getProperty("user");
             String password = properties.getProperty("password");

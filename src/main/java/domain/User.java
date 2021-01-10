@@ -1,6 +1,8 @@
 package domain;
 
-public class User implements Entity {
+import java.io.Serializable;
+
+public class User implements Entity, Serializable {
     private String login;
     private String password;
     private String firstName;

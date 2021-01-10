@@ -1,22 +1,24 @@
 package domain;
 
-public class Parking implements Entity {
+import java.io.Serializable;
+
+public class Parking implements Entity, Serializable {
     private String name;
     private int spotsTotal;
     private int spotsCurrently;
     private double coordinateLatitude;
     private double coordinateLongitude;
-    private ParkingServices parkingServices;
+    private ServicesProvidedByParking servicesProvidedByParking;
     private int id;
     private static int currentID;
 
-    public Parking(String name, int spotsTotal, int spotsCurrently, double coordinateLatitude, double coordinateLongitude, ParkingServices parkingServices) {
+    public Parking(String name, int spotsTotal, int spotsCurrently, double coordinateLatitude, double coordinateLongitude, ServicesProvidedByParking servicesProvidedByParking) {
         this.name = name;
         this.spotsTotal = spotsTotal;
         this.spotsCurrently = spotsCurrently;
         this.coordinateLatitude = coordinateLatitude;
         this.coordinateLongitude = coordinateLongitude;
-        this.parkingServices = parkingServices;
+        this.servicesProvidedByParking = servicesProvidedByParking;
         this.id = ++currentID;
     }
 
@@ -63,12 +65,12 @@ public class Parking implements Entity {
         this.coordinateLongitude = coordinateLongitude;
     }
 
-    public ParkingServices getParkingServices() {
-        return parkingServices;
+    public ServicesProvidedByParking getParkingServices() {
+        return servicesProvidedByParking;
     }
 
-    public void setParkingServices(ParkingServices parkingServices) {
-        this.parkingServices = parkingServices;
+    public void setParkingServices(ServicesProvidedByParking servicesProvidedByParking) {
+        this.servicesProvidedByParking = servicesProvidedByParking;
     }
 
     public int getId() {
@@ -87,7 +89,7 @@ public class Parking implements Entity {
                 ", spotsCurrently=" + spotsCurrently +
                 ", coordinateLatitude=" + coordinateLatitude +
                 ", coordinateLongitude=" + coordinateLongitude +
-                ", parkingServices=" + parkingServices +
+                ", parkingServices=" + servicesProvidedByParking +
                 ", id=" + id +
                 '}';
     }
