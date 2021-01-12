@@ -6,7 +6,7 @@
 <body>
 <div id="login">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/registration.css">
-    <form id="login_form">
+    <form id="login_form" action="controller" method="post">
         <div class="field_container">
             <input type="text" placeholder="First Name" name ="firstName">
         </div>
@@ -20,11 +20,11 @@
             <input type="text" placeholder="Login" name ="login">
         </div>
         <div class="field_container">
-            <input type="text" placeholder="Password" name ="password">
+            <input type="Password" placeholder="Password" name ="password">
         </div>
 
         <div class="field_container">
-            <input type="Password" placeholder="Confirm password" name="password2">
+            <input type="Password" placeholder="Confirm password" name="confirmPassword">
 <%--                <button id="sign_in_button" >--%>
 <%--                    <span class="button_text">Sign In</span>--%>
 <%--                </button>--%>
@@ -46,7 +46,7 @@
             <div class="clearfix"></div>
         </div>
     </form>
-   
+</div>
 
 </body>
 </html>

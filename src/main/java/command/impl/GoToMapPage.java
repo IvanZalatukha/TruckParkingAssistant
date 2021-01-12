@@ -17,13 +17,13 @@ public class GoToMapPage implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
-        List allParkings = ImplParkingCRUD.getInstance().findAll();
+        List<Parking> allParkings = ImplParkingCRUD.getInstance().findAll();
         Parking park = ImplParkingCRUD.getInstance().findById(7);
 
 
         request.setAttribute("name", "Nick");
         request.setAttribute("age", 777);
-        request.setAttribute("parkings", allParkings);
+        request.setAttribute("allParkings", allParkings);
         request.setAttribute("parking", park);
         System.out.println("set  MAAAAPPP attribute");
 

@@ -21,6 +21,7 @@ public class ImplUserCRUD implements CRUDRepository {
     private static final String UPDATE = "UPDATE app_user SET login=?, password=?, first_name=?," +
             "last_name=?, phone_number=?, role_id=? WHERE id=?";
     private static final String FIND_BY_LOGIN = "SELECT * FROM app_user where LOGIN=?";
+    private static final String AMOUNT_ID = "SELECT COUNT(id) FROM app_user";
     private static Connection connection = null;
 
     static {
@@ -56,7 +57,7 @@ public class ImplUserCRUD implements CRUDRepository {
         return user;
     }
 
-    public User findByLogin(String login){
+    public User findByLogin(String login) {
         User user = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_LOGIN);
@@ -89,6 +90,7 @@ public class ImplUserCRUD implements CRUDRepository {
 
         return list;
     }
+
     private User getUserFromRS(ResultSet resultStatement) throws SQLException {
         User user = new User();
         user.setId(resultStatement.getInt("id"));
@@ -100,6 +102,22 @@ public class ImplUserCRUD implements CRUDRepository {
         user.setPhoneNumber(resultStatement.getLong("phone_number"));
         user.setRole(Role.resolveRoleById(resultStatement.getInt("role_id")));
         return user;
+    }
+
+    public Integer numberOfUsers() {
+        Integer number = 0;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(AMOUNT_ID);
+            ResultSet resultStatement = preparedStatement.executeQuery();
+            while (resultStatement.next()) {
+                return resultStatement.getInt(1);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+        return number;
     }
 
 
@@ -132,7 +150,7 @@ public class ImplUserCRUD implements CRUDRepository {
             preparedStatement.setInt(1, id);
             int i = preparedStatement.executeUpdate();
 
-            if(i == 1) {
+            if (i == 1) {
                 return true;
             }
         } catch (SQLException e) {

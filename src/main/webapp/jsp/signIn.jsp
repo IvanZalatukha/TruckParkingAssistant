@@ -8,18 +8,18 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/signIn.css">
     <form id="login_form" action="controller" method="post">
         <div class="field_container">
-            <input type="text" placeholder="Email Address" name ="login">
+            <input type="text" placeholder="Email Address" name="login">
         </div>
 
         <div class="field_container">
             <input type="Password" placeholder="Password" name="password">
-<%--            <button id="sign_in_button" >--%>
-<%--                <span class="button_text">Sign In</span>--%>
-<%--            </button>--%>
-<%--            <form action="controller" method="post">--%>
-                <input type="hidden" name="command" value="goSignInPage">
-                <input type="submit" value="Sign in" class="btn blue"  >
-<%--            </form>--%>
+            <%--            <button id="sign_in_button" >--%>
+            <%--                <span class="button_text">Sign In</span>--%>
+            <%--            </button>--%>
+            <%--            <form action="controller" method="post">--%>
+            <input type="hidden" name="command" value="goSignInPage">
+            <input type="submit" value="Sign in" class="button">
+            <%--            </form>--%>
         </div>
 
         <div id="sign_in_options" class="field_container">
@@ -28,7 +28,8 @@
                 <span id="password_sign_in_option">or you can <a href="#" id="password_sign_in" class="login_link">sign in using a password</a></span>
             </div>
             <div id="remember_me_container">
-                <input name="user[remember_me]" type="hidden" value="0"><input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1">
+                <input name="user[remember_me]" type="hidden" value="0">
+                <input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1">
                 <label class="login_link" for="user_remember_me" id="remember_me_label">stay signed in</label>
             </div>
             <div class="clearfix"></div>
