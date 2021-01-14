@@ -14,6 +14,9 @@
             <input type="text" placeholder="Last Name" name ="lastName">
         </div>
         <div class="field_container">
+            <input type="text" placeholder="Email" name ="email">
+        </div>
+        <div class="field_container">
             <input type="text" placeholder="Phone number" name ="phoneNumber">
         </div>
         <div class="field_container">

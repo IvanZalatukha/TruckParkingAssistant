@@ -8,6 +8,8 @@ public enum CommandValue {
     ADMIN_PAGE("goToAdiminPage"),
     SIGN_IN_PAGE("goSignInPage"),
     REGISTRATION_PAGE("goToRegistrationPage"),
+    ADMIN_MAP("adminMap"),
+    SHOW_PARKING("showParking"),
 //    SUGGEST("suggest"),
 //    CANCEL_SUGGESTION("cancelSuggestion"),
 //    BID("bid"),

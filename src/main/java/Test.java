@@ -7,6 +7,10 @@ import domain.Role;
 import domain.ServicesProvidedByParking;
 import domain.User;
 import service.UserService;
+import validation.EmailValidation;
+import validation.LoginValidation;
+import validation.PasswordValidation;
+import validation.PhoneNumberValidation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,19 +19,10 @@ public class Test {
 
     public static void main(String[] args) {
 
-        ImplParkingCRUD implParkingCRUD = ImplParkingCRUD.getInstance();
-        System.out.println();
-        UserService userService = new UserService();
-       User user = new User();
-       user.setLogin("Mike");
-       user.setPassword("123");
+        EmailValidation emailValidation = new EmailValidation();
+        String test = "ivan.zala@gmail.com";
 
-        System.out.println(userService.login(user));
-        ImplParkingsServicesCRUD parkingsServicesCRUD = ImplParkingsServicesCRUD.getInstance();
-
-
-
-
+        System.out.println(emailValidation.validate(test));
     }
 
 

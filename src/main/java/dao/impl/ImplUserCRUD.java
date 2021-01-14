@@ -16,10 +16,10 @@ public class ImplUserCRUD implements CRUDRepository {
     private static final String FIND_BY_ID = "SELECT * FROM app_user WHERE id=?";
     private static final String FIND_ALL = "SELECT * FROM app_user ORDER BY id";
     private static final String CREATE = "INSERT INTO app_user (id, login, password, first_name, " +
-            "last_name, phone_number,role_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            "last_name, email, phone_number,role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String DELETE = "DELETE FROM app_user WHERE id=?";
     private static final String UPDATE = "UPDATE app_user SET login=?, password=?, first_name=?," +
-            "last_name=?, phone_number=?, role_id=? WHERE id=?";
+            "last_name=?, phone_number=?, email=?, role_id=? WHERE id=?";
     private static final String FIND_BY_LOGIN = "SELECT * FROM app_user where LOGIN=?";
     private static final String AMOUNT_ID = "SELECT COUNT(id) FROM app_user";
     private static Connection connection = null;
@@ -98,6 +98,7 @@ public class ImplUserCRUD implements CRUDRepository {
         user.setPassword(resultStatement.getString("password"));
         user.setFirstName(resultStatement.getString("first_name"));
         user.setLastName(resultStatement.getString("last_name"));
+        user.setLastName(resultStatement.getString("email"));
         user.setBanned(resultStatement.getBoolean("is_banned"));
         user.setPhoneNumber(resultStatement.getLong("phone_number"));
         user.setRole(Role.resolveRoleById(resultStatement.getInt("role_id")));
@@ -115,8 +116,6 @@ public class ImplUserCRUD implements CRUDRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-
         return number;
     }
 
@@ -131,8 +130,9 @@ public class ImplUserCRUD implements CRUDRepository {
             preparedStatement.setString(3, user.getPassword());
             preparedStatement.setString(4, user.getFirstName());
             preparedStatement.setString(5, user.getLastName());
-            preparedStatement.setLong(6, user.getPhoneNumber());
-            preparedStatement.setInt(7, Role.resolveIdByRole(user.getRole()));
+            preparedStatement.setString(6, user.getEmail());
+            preparedStatement.setLong(7, user.getPhoneNumber());
+            preparedStatement.setInt(8, Role.resolveIdByRole(user.getRole()));
             int i = preparedStatement.executeUpdate();
             if (i == 1) {
                 return true;
@@ -169,9 +169,10 @@ public class ImplUserCRUD implements CRUDRepository {
             preparedStatement.setString(2, user.getPassword());
             preparedStatement.setString(3, user.getFirstName());
             preparedStatement.setString(4, user.getLastName());
-            preparedStatement.setLong(5, user.getPhoneNumber());
-            preparedStatement.setInt(6, Role.resolveIdByRole(user.getRole()));
-            preparedStatement.setInt(7, user.getId());
+            preparedStatement.setString(5, user.getEmail());
+            preparedStatement.setLong(6, user.getPhoneNumber());
+            preparedStatement.setInt(7, Role.resolveIdByRole(user.getRole()));
+            preparedStatement.setInt(8, user.getId());
             int i = preparedStatement.executeUpdate();
             if (i == 1) {
                 return true;

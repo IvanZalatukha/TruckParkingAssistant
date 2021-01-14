@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -12,6 +13,7 @@
 
 <body>
 
+
 <main class="m-3">
     <div class="row col-md-6">
         <table class="table table-striped table-bordered table-sm">
@@ -23,14 +25,28 @@
                 <th>Coordinate Longitude</th>
             </tr>
 
-            <c:forEach items="${parkings}" var="parking">
+            <c:forEach var="parking" items="${parkings}">
                 <tr>
                     <td>${parking.getName()}</td>
                     <td>${parking.getSpotsTotal()}</td>
                     <td>${parking.getSpotsCurrently()}</td>
                     <td>${parking.getCoordinateLatitude()}</td>
                     <td>${parking.getCoordinateLongitude()}</td>
+                    <td><form action="controller" method="post">
+                        <input type="hidden" name="command" value="showParking">
+                        <input type="hidden" name="id" value="${parking.getId()}">
+                        <input type="submit" class="page-link" name="submit" value="Show" >
+                    </form> </td>
+                    <td><form action="controller" method="post">
+                        <input type="hidden" name="command" value="goToPaginationPage">
+                        <input type="submit" class="page-link" name="submit" value="Update" >
+                    </form> </td>
+                    <td><form action="controller" method="post">
+                        <input type="hidden" name="command" value="goToPaginationPage">
+                        <input type="submit" class="page-link" name="submit" value="Delete" >
+                    </form> </td>
                 </tr>
+
             </c:forEach>
         </table>
     </div>

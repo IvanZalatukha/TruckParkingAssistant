@@ -22,7 +22,8 @@ public class RegistrationPage implements Command {
         String phoneNumber = request.getParameter("phoneNumber");
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        User user = new User(login, password, firstName,lastName, Role.USER);
+        String email = request.getParameter("email");
+        User user = new User(login, password, firstName,lastName, email, Role.USER);
         user.setId(ImplUserCRUD.getInstance().numberOfUsers() + 1);
         if(phoneNumber != null) {
             user.setPhoneNumber(Long.parseLong(phoneNumber));

@@ -3,8 +3,10 @@ package command.impl;
 import command.Command;
 import command.JspPath;
 import dao.impl.ImplParkingCRUD;
+import dao.impl.ImplParkingsServicesCRUD;
 import dao.impl.ImplUserCRUD;
 import domain.Parking;
+import domain.ServicesProvidedByParking;
 import domain.User;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,13 +20,13 @@ public class GoToMapPage implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
         List<Parking> allParkings = ImplParkingCRUD.getInstance().findAll();
-        Parking park = ImplParkingCRUD.getInstance().findById(7);
+        List<ServicesProvidedByParking> allServices = ImplParkingsServicesCRUD.getInstance().findAll();
 
 
-        request.setAttribute("name", "Nick");
-        request.setAttribute("age", 777);
+
+        request.setAttribute("allServices", allServices);
         request.setAttribute("allParkings", allParkings);
-        request.setAttribute("parking", park);
+
         System.out.println("set  MAAAAPPP attribute");
 
 

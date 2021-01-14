@@ -23,8 +23,8 @@
             <label for="records">Select records per page:</label>
 
             <select class="form-control" id="records" name="recordsPerPage">
-                <option value="5">5</option>
-                <option value="10" selected>10</option>
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
                 <option value="15">15</option>
             </select>
 

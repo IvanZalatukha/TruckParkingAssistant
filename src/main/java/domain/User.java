@@ -10,14 +10,16 @@ public class User implements Entity, Serializable {
     private boolean isBanned;
     private Role role;
     private long phoneNumber;
+    private String email;
     private int id;
     private static int currentID;
 
-    public User(String login, String password, String firstName, String lastName, Role role) {
+    public User(String login, String password, String firstName, String lastName, String email, Role role) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.role = role;
         this.id = ++currentID;
     }
@@ -100,6 +102,14 @@ public class User implements Entity, Serializable {
 
     public static void setCurrentID(int currentID) {
         User.currentID = currentID;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

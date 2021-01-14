@@ -7,15 +7,11 @@
 </head>
 <body>
 
-<form action="controller" method="post">
-    <input type="hidden" name="command" value="goToMainPage">
-    <input type="submit"  name="submit" value="main" >
-</form>
-
 <script>
     const locations = []
     const parkingNames = []
     const spotsTotal = []
+    const allServices = []
 </script>
 
 <c:forEach var="parking" items="${allParkings}">
@@ -26,6 +22,15 @@
         spotsTotal.push(${parking.getSpotsTotal()})
 </script>
 
+</c:forEach>
+
+<c:forEach var="services" items="${allServices}">
+<script>
+        allServices.push(${services.getFence()}, ${services.getSecurityCameras()}, ${services.getWc()}, ${services.getShower()},
+            ${services.getGuardedParking()}, ${services.getLighting()}, ${services.getElectricity()}, ${services.getWater()},
+            ${services.getGasStation()}, ${services.getWifi()}, ${services.getLodging()}, ${services.getTruckService()},
+            ${services.getTruckWash()}, ${services.getStore()}, ${services.getFood()})
+</script>
 </c:forEach>
 
     <script>
@@ -96,8 +101,6 @@
 
 
 
-
-
             infoWindow = new google.maps.InfoWindow();
             const locationButton = document.createElement("button");
             locationButton.textContent = "Show my location";
@@ -139,6 +142,7 @@
             }
 
 
+            const markersMap = new Map();
             for (let i = 0; i < locations.length; i++) {
                 const marker = new google.maps.Marker({
                     position: locations[i],
@@ -146,25 +150,34 @@
                     title: parkingNames.shift(i),
                     icon: {
                         url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-                    }
+                    },
+                    animation: google.maps.Animation.DROP
                 });
                 const parkingName = parkingNames.shift(i);
                 const totalSpot = spotsTotal.shift(i);
+                const serv = allServices.shift(i)
                 const contentString =
-                    parkingName +
-                '<div id="content">' +
-                    '<div id="siteNotice">' +
+                    '<div id="infoWindowContainer">' +
+                    '<div id ="head">' +
+                '<div id ="name"></div>' + totalSpot +'</div>' +
+                '<div></div>'
+                '</div>'
 
-                    "</div>" +  + totalSpot +
-                    '<h1 id="firstHeading" class="firstHeading"> </h1>' +
-                    '<div id="bodyContent">' +
-                    "<p>Here will be information about my parking and </p> <p>the services that the driver can get here</p>" +
-                    '<p><a href=https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%BE%D1%8F%D0%BD%D0%BA%D0%B0_' +
-                    '(%D1%81%D0%BE%D0%BE%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5)>' +
-                    "what is parking?</a> " +
-                    "(last visited June 22, 2009).</p>" +
-                    "</div>" +
-                    "</div>";
+                //     parkingName +
+                // '<div id="content">' +
+                //     '<div id="siteNotice">' +
+                //
+                //     serv +
+                //     "</div>" +  + totalSpot +
+                //     '<h1 id="firstHeading" class="firstHeading"> </h1>' +
+                //     '<div id="bodyContent">' +
+                //     "<p>Here will be information about my parking and </p> <p>the services that the driver can get here</p>" +
+                //     '<p><a href=https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%BE%D1%8F%D0%BD%D0%BA%D0%B0_' +
+                //     '(%D1%81%D0%BE%D0%BE%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5)>' +
+                //     "what is parking?</a> " +
+                //     "(last visited June 22, 2009).</p>" +
+                //     "</div>" +
+                //     "</div>";
                 const infowindow = new google.maps.InfoWindow({
                     content: contentString
 
@@ -172,15 +185,15 @@
                 marker.addListener("click", () => {
                     infowindow.open(map, marker);
                 });
+                markersMap.set(i+1, marker);
             }
 
         }
+
     </script>
 
-
-
-
 </body>
+
 <input
         id="pac-input"
         class="controls"
@@ -189,8 +202,8 @@
 />
 <style>
     #map {
-        height: 800px;
-        width: 70%;
+        height: 950px;
+        width: 100%;
     }
 </style>
 
