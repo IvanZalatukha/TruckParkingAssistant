@@ -23,7 +23,7 @@ public class CommandProvider {
         commandMatching.put(CommandValue.ERROR.getValue(), new ErrorInRequest());
         commandMatching.put(CommandValue.SIGN_IN_PAGE.getValue(), new SignInPage());
         commandMatching.put(CommandValue.REGISTRATION_PAGE.getValue(), new RegistrationPage());
-//        commandMatching.put(CommandValue.ADMIN_MAP.getValue(), new AdminMap());
+        commandMatching.put(CommandValue.ADMIN_MAP.getValue(), new AdminMap());
         commandMatching.put(CommandValue.SHOW_PARKING.getValue(), new ShowParking());
 //        commandMatching.put(CommandValue.SEARCH.getValue(), new Search());
 //        commandMatching.put(CommandValue.GO_TO_ABOUT_PAGE.getValue(), new GoToAboutPage());

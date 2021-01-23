@@ -1,8 +1,6 @@
 package controller;
 
-import command.Command;
-import command.CommandProvider;
-import command.JspPath;
+import command.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Controller",
-        urlPatterns = {"/login", ""})
+@WebServlet("/controller")
 public class FirstController extends HttpServlet {
 
     public FirstController() {
@@ -39,13 +36,21 @@ public class FirstController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Command command = CommandProvider.getInstance().getCommand(request);
+
         try {
-            String page = command.execute(request, response);
+            ResponseContext page = command.execute(request, response);
+            if (page.getResponseType() == ResponseType.FORWARD) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher(page.getPage());
+                dispatcher.forward(request, response);
+            } else {
+                response.sendRedirect(page.getPage());
+            }
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher(page);
-            dispatcher.forward(request, response);
+//            RequestDispatcher dispatcher = request.getRequestDispatcher(page);
+//
+//            dispatcher.forward(request, response);
 
-        }catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             System.out.println("exception");
             RequestDispatcher dispatcher = request.getRequestDispatcher(JspPath.MAIN_PAGE.getPath());
             dispatcher.forward(request, response);

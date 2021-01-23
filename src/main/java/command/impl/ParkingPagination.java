@@ -2,16 +2,19 @@ package command.impl;
 
 import command.Command;
 import command.JspPath;
+import command.ResponseContext;
+import command.ResponseType;
 import domain.Parking;
 import service.ParkingService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class ParkingPagination implements Command {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
 
         int currentPage = Integer.parseInt(request.getParameter("currentPage"));
         int recordsPerPage = Integer.parseInt(request.getParameter("recordsPerPage"));
@@ -19,6 +22,7 @@ public class ParkingPagination implements Command {
         ParkingService parkingService = new ParkingService();
 
         List<Parking> parkings = parkingService.findParkings(currentPage, recordsPerPage);
+        HttpSession httpSession = request.getSession();
         request.setAttribute("parkings", parkings);
 
         int rows = parkingService.getNumberOfRows();
@@ -30,10 +34,10 @@ public class ParkingPagination implements Command {
             nOfPages++;
         }
 
-        request.setAttribute("noOfPages", nOfPages);
-        request.setAttribute("currentPage", currentPage);
-        request.setAttribute("recordsPerPage", recordsPerPage);
+        httpSession.setAttribute("noOfPages", nOfPages);
+        httpSession.setAttribute("currentPage", currentPage);
+        httpSession.setAttribute("recordsPerPage", recordsPerPage);
+        return new ResponseContext(JspPath.PARKING_PAGINATION_PAGE.getPath(), ResponseType.FORWARD);
 
-        return JspPath.PARKING_PAGINATION_PAGE.getPath();
     }
 }

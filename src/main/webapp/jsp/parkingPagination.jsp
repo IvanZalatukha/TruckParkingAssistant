@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -9,27 +8,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
           crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/pagination.css">
 </head>
+<%--<jsp:include page="/jsp/adminMap.jsp"> <jsp:param name="command" value="adminMap"/>--%>
+<%--</jsp:include>--%>
 
 <body>
 
 
 <main class="m-3">
+
     <div class="row col-md-6">
-        <table class="table table-striped table-bordered table-sm">
+        <table class="table table-striped table-bordered table-sm" >
             <tr>
                 <th>Name</th>
                 <th>Spots total</th>
                 <th>Spots Currently</th>
                 <th>Coordinate Latitude</th>
                 <th>Coordinate Longitude</th>
+                <th> </th>
+                <th> </th>
+                <th> </th>
             </tr>
 
             <c:forEach var="parking" items="${parkings}">
                 <tr>
                     <td>${parking.getName()}</td>
                     <td>${parking.getSpotsTotal()}</td>
-                    <td>${parking.getSpotsCurrently()}</td>
                     <td>${parking.getCoordinateLatitude()}</td>
                     <td>${parking.getCoordinateLongitude()}</td>
                     <td><form action="controller" method="post">
@@ -46,7 +51,6 @@
                         <input type="submit" class="page-link" name="submit" value="Delete" >
                     </form> </td>
                 </tr>
-
             </c:forEach>
         </table>
     </div>
@@ -98,6 +102,7 @@
             </c:if>
         </ul>
     </nav>
+
 </main>
 
 </body>

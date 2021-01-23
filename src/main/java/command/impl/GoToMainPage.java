@@ -1,8 +1,6 @@
 package command.impl;
 
-import command.Command;
-import command.JspPath;
-import command.ParameterName;
+import command.*;
 import dao.impl.ImplUserCRUD;
 import domain.User;
 
@@ -11,9 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class GoToMainPage implements Command {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+        return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.FORWARD);
 
-
-        return JspPath.MAIN_PAGE.getPath();
     }
 }

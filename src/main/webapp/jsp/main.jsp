@@ -4,15 +4,19 @@
 <head>
     <title>Title</title>
 
-
 </head>
 <body>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main2.css">
+<jsp:include page="header.jsp">
+    <jsp:param name="list" value="true" />
+</jsp:include>
 
+<div id="container">
+    <h1>Safety.</h1>
+    <h1>Simplicity.</h1>
+    <h1>Reliability.</h1>
 </div>
-    <div id="wrapper">
-        <div class="menu">
-                    <h1>MAIN PAGE</h1>
-            <div class="preheaderTextItem">
+
                 <form action="controller" method="post">
                     <input type="hidden" name="command" value="goToMapPage">
                     <input type="submit"  name="submit" value="map" >
@@ -34,10 +38,11 @@
                     <input type="hidden" name="currentPage" value="1">
                     <input type="submit"  name="submit" value="AdiminPage" >
                 </form>
+                <form action="controller" method="post">
+                    <input type="hidden" name="command" value="adminMap">
+                    <input type="submit"  name="submit" value="AdiminMap" >
+                </form>
 
-            </div>
-    </div>
-</div>
 
 
 

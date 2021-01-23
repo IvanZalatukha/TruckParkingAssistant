@@ -7,14 +7,15 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
   <display-name>Truck Parking Assistant</display-name>
-  <servlet>
-    <servlet-name>Controller</servlet-name>
-    <servlet-class>controller.FirstController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Controller</servlet-name>
-    <url-pattern>/controller</url-pattern>
-  </servlet-mapping>
+<!--  <servlet>-->
+<!--    <servlet-name>Controller</servlet-name>-->
+<!--    <servlet-class>controller.FirstController</servlet-class>-->
+<!--  </servlet>-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>Controller</servlet-name>-->
+<!--    <url-pattern>/controller</url-pattern>-->
+<!--  </servlet-mapping>-->
+
   <session-config>
     <session-timeout>60</session-timeout>
   </session-config>

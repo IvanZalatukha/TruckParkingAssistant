@@ -4,6 +4,9 @@
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="header.jsp">
+    <jsp:param name="list" value="true" />
+</jsp:include>
 <div id="login">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/signIn.css">
     <form id="login_form" action="controller" method="post">

@@ -14,11 +14,11 @@ import java.util.List;
 public class ImplParkingCRUD implements CRUDRepository {
     private static final String FIND_BY_ID = "SELECT * FROM parking WHERE id=?";
     private static final String FIND_ALL = "SELECT * FROM parking ORDER BY id";
-    private static final String CREATE = "INSERT INTO parking (id, name, spots_total, spots_currently, " +
-            "coordinate_latitude, coordinate_longitude) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String CREATE = "INSERT INTO parking (id, name, spots_total, coordinate_latitude, " +
+            "coordinate_longitude) VALUES (?, ?, ?, ?, ?)";
     private static final String DELETE = "DELETE FROM parking WHERE id=?";
-    private static final String UPDATE = "UPDATE parking SET name=?, spots_total=?, spots_currently=?," +
-            "coordinate_latitude=?, coordinate_longitude=? WHERE id=?";
+    private static final String UPDATE = "UPDATE parking SET name=?, spots_total=?, coordinate_latitude=?, " +
+            "coordinate_longitude=? WHERE id=?";
     private static final String FIND_FOR_PAGINATION = "SELECT * FROM parking LIMIT ?, ?";
     private static final String NUMBER_OF_PARKINGS = "SELECT COUNT(id) FROM parking";
     private static Connection connection = null;
@@ -79,7 +79,6 @@ public class ImplParkingCRUD implements CRUDRepository {
         parking.setId(resultStatement.getInt("id"));
         parking.setName(resultStatement.getString("name"));
         parking.setSpotsTotal(resultStatement.getInt("spots_total"));
-        parking.setSpotsCurrently(resultStatement.getInt("spots_currently"));
         parking.setCoordinateLatitude(resultStatement.getDouble("coordinate_latitude"));
         parking.setCoordinateLongitude(resultStatement.getDouble("coordinate_longitude"));
         return parking;
@@ -126,9 +125,8 @@ public class ImplParkingCRUD implements CRUDRepository {
             preparedStatement.setInt(1, park.getId());
             preparedStatement.setString(2, park.getName());
             preparedStatement.setInt(3, park.getSpotsTotal());
-            preparedStatement.setInt(4, park.getSpotsCurrently());
-            preparedStatement.setDouble(5, park.getCoordinateLatitude());
-            preparedStatement.setDouble(6, park.getCoordinateLongitude());
+            preparedStatement.setDouble(4, park.getCoordinateLatitude());
+            preparedStatement.setDouble(5, park.getCoordinateLongitude());
             int i = preparedStatement.executeUpdate();
             if (i == 1) {
                 return true;
@@ -161,10 +159,9 @@ public class ImplParkingCRUD implements CRUDRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
             preparedStatement.setString(1, park.getName());
             preparedStatement.setInt(2, park.getSpotsTotal());
-            preparedStatement.setInt(3, park.getSpotsCurrently());
-            preparedStatement.setDouble(4, park.getCoordinateLatitude());
-            preparedStatement.setDouble(5, park.getCoordinateLongitude());
-            preparedStatement.setInt(6, id);
+            preparedStatement.setDouble(3, park.getCoordinateLatitude());
+            preparedStatement.setDouble(4, park.getCoordinateLongitude());
+            preparedStatement.setInt(5, id);
             int i = preparedStatement.executeUpdate();
             if (i == 1) {
                 return true;

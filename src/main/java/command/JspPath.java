@@ -9,7 +9,7 @@ public enum JspPath {
     PARKING_PAGINATION_PAGE("/jsp/parkingPagination.jsp"),
     SIGN_IN_PAGE("/jsp/signIn.jsp"),
     REGISTRATION_PAGE("/jsp/registration.jsp"),
-    ADMIN_MAP_PAGE("/jsp/mapForAdmin.jsp");
+    ADMIN_MAP_PAGE("/jsp/adminMap.jsp");
 
 
 

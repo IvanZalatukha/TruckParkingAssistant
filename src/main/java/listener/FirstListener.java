@@ -1,6 +1,5 @@
 package listener;
 
-import dao.DatabaseSettings;
 import dao.pool.ConnectionPool;
 
 import javax.servlet.ServletContextEvent;

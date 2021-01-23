@@ -2,6 +2,8 @@ package command.impl;
 
 import command.Command;
 import command.JspPath;
+import command.ResponseContext;
+import command.ResponseType;
 import dao.impl.ImplUserCRUD;
 import domain.Role;
 import domain.User;
@@ -11,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class RegistrationPage implements Command {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
 //        if (request.getParameter("password").equals(request.getParameter("confirmPassword"))) {
 //
 //        } else {
@@ -30,8 +32,9 @@ public class RegistrationPage implements Command {
         }
         if (firstName != null) {
             ImplUserCRUD.getInstance().create(user);
-            return JspPath.SIGN_IN_PAGE.getPath();
+            return new ResponseContext(JspPath.SIGN_IN_PAGE.getPath(), ResponseType.FORWARD);
         }
-        else return JspPath.REGISTRATION_PAGE.getPath();
+        return new ResponseContext(JspPath.REGISTRATION_PAGE.getPath(), ResponseType.FORWARD);
+
     }
 }

@@ -10,15 +10,8 @@ public enum CommandValue {
     REGISTRATION_PAGE("goToRegistrationPage"),
     ADMIN_MAP("adminMap"),
     SHOW_PARKING("showParking"),
-//    SUGGEST("suggest"),
-//    CANCEL_SUGGESTION("cancelSuggestion"),
-//    BID("bid"),
-//    CHANGE_LOCAL("changeLocal"),
-//    FORWARD("forward"),
-//    SUGGEST_FROM_CART("suggestFromCart"),
-//    GO_TO_ADMIN_PAGE("goToAdminPage"),
-//    ACCEPT_REJECT_LOT("acceptRejectLot"),
-//    LOCK_UNLOCK_BIDDER("lockUnlockBidder"),
+
+
 //    SET_REMOVE_ADMIN_RIGHTS("setRemoveAdminRights"),
 //    BID_FROM_CART_PAGE("bidFromCartPage"),
     BID_FROM_LOTS_PAGE("bidFromLotsPage");
