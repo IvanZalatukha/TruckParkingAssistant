@@ -13,12 +13,6 @@ public class Filter implements javax.servlet.Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse servletResponse = (HttpServletResponse) response;
-        System.out.println(request.getServletContext().getContextPath() + "FILTERED");
-//        if (){
-//
-//        } else {
-//            servletResponse.sendRedirect();
-//        }
-        chain.doFilter(request,response);
+        chain.doFilter(request, response);
     }
 }

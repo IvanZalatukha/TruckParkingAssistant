@@ -15,7 +15,8 @@ public class PasswordValidation implements Validation {
     }
 
     private boolean isAllowableLogin(String password) {
-        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$");
+//        Pattern pattern = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9_]{5,20}$");
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }

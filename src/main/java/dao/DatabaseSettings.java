@@ -114,7 +114,6 @@ public class DatabaseSettings {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        TODO don`t return null
         return null;
     }
 

@@ -10,11 +10,11 @@ import javax.servlet.annotation.WebListener;
 public class FirstListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-    ConnectionPool.getInstance();
+        ConnectionPool.getInstance();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-    ConnectionPool.getInstance().destroyPool();
+        ConnectionPool.getInstance().destroyPool();
     }
 }

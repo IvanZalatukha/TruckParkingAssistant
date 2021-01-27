@@ -15,12 +15,12 @@ public class NameValidation implements Validation {
     }
 
     private boolean isAllowableName(String name) {
-        Pattern pattern = Pattern.compile("^[a-zA-Z][a-zA-Z0-9_]{4,12}$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9_]{4,12}$");
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();
     }
 
-    public boolean theNameIsNotOffensive(String name){
+    public boolean theNameIsNotOffensive(String name) {
         return false;
     }
 }

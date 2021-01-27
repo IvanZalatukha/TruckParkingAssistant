@@ -14,6 +14,7 @@ public class UserService {
         }
         return false;
     }
+
     private static String getMd5Hash(String source) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -24,6 +25,7 @@ public class UserService {
             throw new RuntimeException(e);
         }
     }
+
     private static String bytesToHex(byte[] bytes) {
         StringBuilder builder = new StringBuilder();
         for (Byte b : bytes) {

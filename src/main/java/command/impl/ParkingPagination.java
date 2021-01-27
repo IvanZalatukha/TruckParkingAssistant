@@ -21,7 +21,7 @@ public class ParkingPagination implements Command {
 
         ParkingService parkingService = new ParkingService();
 
-        List<Parking> parkings = parkingService.findParkings(currentPage, recordsPerPage);
+        List<Parking> parkings = parkingService.findAmountOfParkings(currentPage, recordsPerPage);
         HttpSession httpSession = request.getSession();
         request.setAttribute("parkings", parkings);
 

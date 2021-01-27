@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -10,8 +10,6 @@
           crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/pagination.css">
 </head>
-<%--<jsp:include page="/jsp/adminMap.jsp"> <jsp:param name="command" value="adminMap"/>--%>
-<%--</jsp:include>--%>
 
 <body>
 
@@ -19,16 +17,16 @@
 <main class="m-3">
 
     <div class="row col-md-6">
-        <table class="table table-striped table-bordered table-sm" >
+        <table class="table table-striped table-bordered table-sm">
             <tr>
                 <th>Name</th>
                 <th>Spots total</th>
                 <th>Spots Currently</th>
                 <th>Coordinate Latitude</th>
                 <th>Coordinate Longitude</th>
-                <th> </th>
-                <th> </th>
-                <th> </th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
 
             <c:forEach var="parking" items="${parkings}">
@@ -37,19 +35,25 @@
                     <td>${parking.getSpotsTotal()}</td>
                     <td>${parking.getCoordinateLatitude()}</td>
                     <td>${parking.getCoordinateLongitude()}</td>
-                    <td><form action="controller" method="post">
-                        <input type="hidden" name="command" value="showParking">
-                        <input type="hidden" name="id" value="${parking.getId()}">
-                        <input type="submit" class="page-link" name="submit" value="Show" >
-                    </form> </td>
-                    <td><form action="controller" method="post">
-                        <input type="hidden" name="command" value="goToPaginationPage">
-                        <input type="submit" class="page-link" name="submit" value="Update" >
-                    </form> </td>
-                    <td><form action="controller" method="post">
-                        <input type="hidden" name="command" value="goToPaginationPage">
-                        <input type="submit" class="page-link" name="submit" value="Delete" >
-                    </form> </td>
+                    <td>
+                        <form action="controller" method="post">
+                            <input type="hidden" name="command" value="showParking">
+                            <input type="hidden" name="id" value="${parking.getId()}">
+                            <input type="submit" class="page-link" name="submit" value="Show">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="controller" method="post">
+                            <input type="hidden" name="command" value="goToPaginationPage">
+                            <input type="submit" class="page-link" name="submit" value="Update">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="controller" method="post">
+                            <input type="hidden" name="command" value="goToPaginationPage">
+                            <input type="submit" class="page-link" name="submit" value="Delete">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
@@ -63,7 +67,7 @@
                         <input type="hidden" name="command" value="goToPaginationPage">
                         <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
                         <input type="hidden" name="currentPage" value="${currentPage-1}">
-                        <input type="submit" class="page-link" name="submit" value="Previous" >
+                        <input type="submit" class="page-link" name="submit" value="Previous">
                     </form>
 
                 </li>
@@ -82,7 +86,7 @@
                                 <input type="hidden" name="command" value="goToPaginationPage">
                                 <input type="hidden" name="currentPage" value="${i}">
                                 <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
-                                <input type="submit" class="page-link" name="submit" value="${i}" >
+                                <input type="submit" class="page-link" name="submit" value="${i}">
                             </form>
                         </li>
                     </c:otherwise>
@@ -95,7 +99,7 @@
                         <input type="hidden" name="command" value="goToPaginationPage">
                         <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
                         <input type="hidden" name="currentPage" value="${currentPage+1}">
-                        <input type="submit" class="page-link" name="submit" value="Next" >
+                        <input type="submit" class="page-link" name="submit" value="Next">
                     </form>
 
                 </li>

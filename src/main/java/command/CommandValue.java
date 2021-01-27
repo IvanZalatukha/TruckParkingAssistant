@@ -7,16 +7,15 @@ public enum CommandValue {
     PARKING_PAGINATION_PAGE("goToPaginationPage"),
     ADMIN_PAGE("goToAdiminPage"),
     SIGN_IN_PAGE("goSignInPage"),
-    REGISTRATION_PAGE("goToRegistrationPage"),
+    LOGIN_USER("login"),
     ADMIN_MAP("adminMap"),
-    SHOW_PARKING("showParking"),
+    OUR_SERVICE("ourService"),
+    MESSAGE_FROM_USER("messageFromUser"),
+    REGISTRATION_PAGE("goToRegistrationPage"),
+    REGISTRATION_USER("registrationUser"),
+    CONNECT_WITH_US("connectWithUs");
 
-
-//    SET_REMOVE_ADMIN_RIGHTS("setRemoveAdminRights"),
-//    BID_FROM_CART_PAGE("bidFromCartPage"),
-    BID_FROM_LOTS_PAGE("bidFromLotsPage");
-
-    private String value;
+    private final String value;
 
     CommandValue(String value) {
         this.value = value;

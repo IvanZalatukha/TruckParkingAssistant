@@ -59,7 +59,7 @@ public class ImplParkingCRUD implements CRUDRepository {
 
     @Override
     public List<Parking> findAll() {
-    List<Parking> list = new ArrayList<>();
+        List<Parking> list = new ArrayList<>();
         Parking parking;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL);
@@ -74,6 +74,7 @@ public class ImplParkingCRUD implements CRUDRepository {
 
         return list;
     }
+
     private Parking getParkingFromRS(ResultSet resultStatement) throws SQLException {
         Parking parking = new Parking();
         parking.setId(resultStatement.getInt("id"));
@@ -83,7 +84,8 @@ public class ImplParkingCRUD implements CRUDRepository {
         parking.setCoordinateLongitude(resultStatement.getDouble("coordinate_longitude"));
         return parking;
     }
-    public List<Parking> findForPagination(int start, int recordsPerPage){
+
+    public List<Parking> findForPagination(int start, int recordsPerPage) {
         List<Parking> list = new ArrayList<>();
         Parking parking;
         try {
@@ -101,6 +103,7 @@ public class ImplParkingCRUD implements CRUDRepository {
 
         return list;
     }
+
     public Integer numberOfParkings() {
         Integer number = 0;
         try {
@@ -143,7 +146,7 @@ public class ImplParkingCRUD implements CRUDRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
             preparedStatement.setInt(1, id);
             int i = preparedStatement.executeUpdate();
-            if(i == 1) {
+            if (i == 1) {
                 return true;
             }
         } catch (SQLException e) {

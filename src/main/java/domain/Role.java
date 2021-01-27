@@ -23,7 +23,6 @@ public enum Role implements Serializable {
                 return role;
             }
         }
-//        TODO add another Exception
         throw new RuntimeException("Role with this number does not exist");
     }
 
@@ -33,7 +32,6 @@ public enum Role implements Serializable {
                 return role.getId();
             }
         }
-//        TODO add another Exception
         throw new RuntimeException("Role with this number does not exist");
     }
 

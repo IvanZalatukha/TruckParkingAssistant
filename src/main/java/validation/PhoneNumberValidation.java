@@ -15,7 +15,7 @@ public class PhoneNumberValidation implements Validation {
     }
 
     private boolean isAllowableLogin(String phoneNumber) {
-        Pattern pattern = Pattern.compile("\\d{9}");
+        Pattern pattern = Pattern.compile("\\d{11}");
         Matcher matcher = pattern.matcher(phoneNumber);
         return matcher.matches();
     }

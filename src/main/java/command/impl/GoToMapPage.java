@@ -7,7 +7,7 @@ import command.ResponseType;
 import dao.impl.ImplParkingCRUD;
 import dao.impl.ImplParkingsServicesCRUD;
 import domain.Parking;
-import domain.RandomNumberGenerator;
+import service.SetRandomNumberOfCurrentSpots;
 import domain.ServicesProvidedByParking;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,11 +19,9 @@ public class GoToMapPage implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
 
-        List<Parking> allParkings = ImplParkingCRUD.getInstance().findAll();
-        for (Parking park : allParkings) {
-            int randomAmountSpots = RandomNumberGenerator.generateRandomNumber(park.getSpotsTotal());
-            park.setSpotsCurrently(randomAmountSpots);
-        }
+        List<Parking> allParkings = SetRandomNumberOfCurrentSpots.setCurrentSpots(
+                ImplParkingCRUD.getInstance().findAll());
+
         List<ServicesProvidedByParking> allServices = ImplParkingsServicesCRUD.getInstance().findAll();
         HttpSession httpSession = request.getSession();
 
