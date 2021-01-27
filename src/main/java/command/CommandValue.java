@@ -13,6 +13,8 @@ public enum CommandValue {
     MESSAGE_FROM_USER("messageFromUser"),
     REGISTRATION_PAGE("goToRegistrationPage"),
     REGISTRATION_USER("registrationUser"),
+    FORGOT_PASSWORD("forgotPassword"),
+    FORGOT_PASSWORD_PAGE("forgotPasswordPage"),
     CONNECT_WITH_US("connectWithUs");
 
     private final String value;

@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Title</title>
+
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="/css/main2.css">
+
+
+<div id="container">
+
+    <div id="aboutUs">
+        <h1>Safety.</h1>
+        <h1>Simplicity.</h1>
+        <h1>Reliability.</h1>
+        <h2>Find out what you and your company get from using the WEB Truck Parking Assistant tool.
+            Stay in touch with your drivers and inform them about available parking spaces.
+            Check out our solutions and use all functionalities.</h2>
+    </div>
+    <div style="float:left"><a class="b-ghost" href="#">CONNECT WITH US</a></div>
+    <a class="b-ghost" href="#">GO TO MAP</a>
+</div>
+
+<form action="controller" method="post">
+    <input type="hidden" name="command" value="goToMapPage">
+    <input type="submit"  name="submit" value="map" >
+</form>
+<form action="controller" method="post">
+    <input type="hidden" name="command" value="goSignInPage">
+    <input type="submit"  name="submit" value="Sign in" >
+</form>
+<form action="controller" method="post">
+    <input type="hidden" name="command" value="goToRegistrationPage">
+    <input type="submit"  name="submit" value="Registration" >
+</form>
+<form action="controller" method="post">
+    <input type="hidden" name="command" value="error">
+    <input type="submit"  name="submit" value="error" >
+</form>
+<form action="controller" method="post">
+    <input type="hidden" name="command" value="goToAdiminPage">
+    <input type="hidden" name="currentPage" value="1">
+    <input type="submit"  name="submit" value="AdiminPage" >
+</form>
+<form action="controller" method="post">
+    <input type="hidden" name="command" value="adminMap">
+    <input type="submit"  name="submit" value="AdiminMap" >
+</form>
+
+
+
+
+</body>
+</html>

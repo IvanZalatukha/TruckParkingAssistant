@@ -31,6 +31,8 @@ public class CommandProvider {
         commandMatching.put(CommandValue.OUR_SERVICE.getValue(), new OurServicePage());
         commandMatching.put(CommandValue.REGISTRATION_PAGE.getValue(), new RegistrationPage());
         commandMatching.put(CommandValue.REGISTRATION_USER.getValue(), new RegistrationUser());
+        commandMatching.put(CommandValue.FORGOT_PASSWORD.getValue(), new ForgotPassword());
+        commandMatching.put(CommandValue.FORGOT_PASSWORD_PAGE.getValue(), new ForgotPasswordPage());
 
     }
 

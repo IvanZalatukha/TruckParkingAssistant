@@ -98,7 +98,7 @@ public class ImplUserCRUD implements CRUDRepository {
         user.setPassword(resultStatement.getString("password"));
         user.setFirstName(resultStatement.getString("first_name"));
         user.setLastName(resultStatement.getString("last_name"));
-        user.setLastName(resultStatement.getString("email"));
+        user.setEmail(resultStatement.getString("email"));
         user.setBanned(resultStatement.getBoolean("is_banned"));
         user.setPhoneNumber(resultStatement.getLong("phone_number"));
         user.setRole(Role.resolveRoleById(resultStatement.getInt("role_id")));

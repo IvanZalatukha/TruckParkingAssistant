@@ -11,6 +11,7 @@ public enum JspPath {
     REGISTRATION_PAGE("/jsp/registration.jsp"),
     CONNECT_WITH_US_PAGE("/jsp/connectWithUs.jsp"),
     OUR_SERVICE("/jsp/ourService.jsp"),
+    FORGOT_PASSWORD("/jsp/forgotPassword.jsp"),
     ADMIN_MAP_PAGE("/jsp/adminMap.jsp");
 
     private final String path;

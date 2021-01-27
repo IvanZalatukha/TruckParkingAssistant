@@ -122,6 +122,7 @@ public class User implements Entity, Serializable {
                 ", isBanned=" + isBanned +
                 ", role=" + role +
                 ", phoneNumber=" + phoneNumber +
+                ", email='" + email + '\'' +
                 ", id=" + id +
                 '}';
     }
