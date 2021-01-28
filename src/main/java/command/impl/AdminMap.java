@@ -9,6 +9,7 @@ import dao.impl.ImplParkingsServicesCRUD;
 import domain.Parking;
 import domain.ServicesProvidedByParking;
 import service.ParkingService;
+import service.SetRandomNumberOfCurrentSpots;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,11 +20,20 @@ public class AdminMap implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
 
-        List<Parking> allParkings = ImplParkingCRUD.getInstance().findAll();
+        List<Parking> allParkings = SetRandomNumberOfCurrentSpots.setCurrentSpots(
+                ImplParkingCRUD.getInstance().findAll());
+
         List<ServicesProvidedByParking> allServices = ImplParkingsServicesCRUD.getInstance().findAll();
+
+        for (int i = 0; i < allParkings.size(); i++) {
+            allParkings.get(i).setParkingServices(allServices.get(i));
+        }
+
         HttpSession httpSession = request.getSession();
+
         httpSession.setAttribute("allServices", allServices);
         httpSession.setAttribute("allParkings", allParkings);
+
 
         int currentPage = 1;
         int recordsPerPage = 5;
@@ -51,6 +61,6 @@ public class AdminMap implements Command {
         httpSession.setAttribute("noOfPages", nOfPages);
         httpSession.setAttribute("currentPage", currentPage);
         httpSession.setAttribute("recordsPerPage", recordsPerPage);
-        return new ResponseContext(JspPath.ADMIN_MAP_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.FORWARD);
     }
 }

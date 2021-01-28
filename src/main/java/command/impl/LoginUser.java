@@ -22,7 +22,7 @@ public class LoginUser implements Command {
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        if (login != null && password != null){
+        if (!login.isEmpty() && !password.isEmpty()){
             User currentUser = new User();
             currentUser.setLogin(login);
             currentUser.setPassword(password);

@@ -22,7 +22,7 @@ public class MessageFromUserCommand implements Command {
         String topic = request.getParameter("topic");
         String text = request.getParameter("text");
 
-        if (name != null && email != null && !text.isEmpty()) {
+        if (!name.isEmpty() && !email.isEmpty() && !text.isEmpty()) {
             EmailValidation emailValidation = new EmailValidation();
             if (!emailValidation.validate(email)) {
                 httpSession.setAttribute("wrongEmailInput", true);

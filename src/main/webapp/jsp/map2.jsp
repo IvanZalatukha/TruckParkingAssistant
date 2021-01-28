@@ -9,33 +9,38 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/infoWindowOnTheMap.css">
 
 <script>
-    const locations = []
-    const parkingNames = []
-    const spotsTotal = []
-    const allServices = []
+    var parkings = []
 </script>
 
 <c:forEach var="parking" items="${allParkings}">
 
     <script>
-        locations.push({lat: ${parking.getCoordinateLatitude()}, lng: ${parking.getCoordinateLongitude()}})
-        parkingNames.push(${parking.getName()})
-        spotsTotal.push(${parking.getSpotsTotal()})
+            parkings.push(
+                {
+                    "coordinates":{lat: ${parking.getCoordinateLatitude()}, lng: ${parking.getCoordinateLongitude()}},
+                    "parkingName": "${parking.getName()}",
+                    "spotsTotal":"${parking.getSpotsTotal()}",
+                    "services": {fence: ${parking.getParkingServices().getFence()},
+                        securityCameras: ${parking.getParkingServices().getSecurityCameras()},
+                        wc: ${parking.getParkingServices().getWc()}, shower: ${parking.getParkingServices().getShower()},
+                        guard: ${parking.getParkingServices().getGuardedParking()}, light: ${parking.getParkingServices().getLighting()},
+                        electricity: ${parking.getParkingServices().getElectricity()}, water: ${parking.getParkingServices().getWater()},
+                        gasStation: ${parking.getParkingServices().getGasStation()}, wifi: ${parking.getParkingServices().getWifi()},
+                        lodging: ${parking.getParkingServices().getLodging()}, truckService: ${parking.getParkingServices().getTruckService()},
+                        truckWash: ${parking.getParkingServices().getTruckWash()}, store: ${parking.getParkingServices().getStore()},
+                        food: ${parking.getParkingServices().getFood()}},
+                    "spotsCurrently": "${parking.getSpotsCurrently()}"
+                }
+
+            )
     </script>
+
 
 </c:forEach>
 
-<c:forEach var="services" items="${allServices}">
-    <script>
-        allServices.push(${services.getFence()}, ${services.getSecurityCameras()}, ${services.getWc()}, ${services.getShower()},
-            ${services.getGuardedParking()}, ${services.getLighting()}, ${services.getElectricity()}, ${services.getWater()},
-            ${services.getGasStation()}, ${services.getWifi()}, ${services.getLodging()}, ${services.getTruckService()},
-            ${services.getTruckWash()}, ${services.getStore()}, ${services.getFood()})
-    </script>
-</c:forEach>
+
 
 <script>
-
 
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
@@ -43,11 +48,7 @@
             zoom: 10,
             mapTypeId: "roadmap",
         });
-
-        console.log(locations);
-        console.log(parkingNames);
-        console.log(spotsTotal);
-
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         let infoWindow = new google.maps.InfoWindow({});
         infoWindow.open(map);
         // Configure the click listener.
@@ -171,78 +172,78 @@
             );
             infoWindow.open(map);
         }
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-        const markersMap = new Map();
-        for (let i = 0; i < locations.length; i++) {
+
+        const markersArray = []
+
+        for (var i = 0; i < parkings.length; i++) {
             const marker = new google.maps.Marker({
-                position: locations[i],
+                position: parkings[i].coordinates,
                 map: map,
-                title: parkingNames.shift(i),
+                title: parkings[i].parkingName,
                 icon: {
                     url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
                 },
                 animation: google.maps.Animation.DROP
             });
-            const parkingName = parkingNames.shift();
-            const totalSpot = spotsTotal.shift();
-            const serv = allServices.shift();
-            var img1;
-            var arr = allServices.splice(0, 15);
-            var imageArr = ['<img src="../serv/electricity2.png" alt="tt">',
-                '<img src="../serv/fence2.png" alt="tt">',
-                '<img src="../serv/food2.png" alt="tt">',
-                '<img src="../serv/gasStation2.png" alt="tt">',
-                '<img src="../serv/guard2.png" alt="tt">',
-                '<img src="../serv/light2.png" alt="tt">',
-                '<img src="../serv/lodging2.png" alt="tt">',
-                '<img src="../serv/securityCameras2.png" alt="tt">',
-                '<img src="../serv/service2.png" alt="tt">',
-                '<img src="../serv/shower2.png" alt="tt">',
-                '<img src="../serv/store2.png" alt="tt">',
-                '<img src="../serv/truckWash2.png" alt="tt">',
-                '<img src="../serv/water2.png" alt="tt">',
-                '<img src="../serv/wc2.png" alt="tt">',
-                '<img src="../serv/wifi2.png" alt="tt">']
-            var resulImageArr = []
-            for (let a = 0; a < arr.length; a++) {
-                if (arr[a].toString() == true) {
-                    resulImageArr.push(imageArr[a]);
-                }
+
+            var img =[]
+            if(parkings[i].services.electricity === true) {
+                img.push('<img src="../PicturesOfParkingServices/electricity2.png" alt="electricity">')
             }
+            if(parkings[i].services.fence === true) {
+                img.push('<img src="../PicturesOfParkingServices/fence2.png" alt="fence">')
+            }
+            if(parkings[i].services.food === true) {
+                img.push('<img src="../PicturesOfParkingServices/food2.png" alt="food">')
+            }
+            if(parkings[i].services.gasStation === true) {
+                img.push('<img src="../PicturesOfParkingServices/gasStation2.png" alt="gasStation">')
+            }
+            if(parkings[i].services.guard === true) {
+                img.push('<img src="../PicturesOfParkingServices/guard2.png" alt="guard">')
+            }
+            if(parkings[i].services.light === true) {
+                img.push('<img src="../PicturesOfParkingServices/light2.png" alt="light">')
+            }
+            if(parkings[i].services.lodging === true) {
+                img.push('<img src="../PicturesOfParkingServices/lodging2.png" alt="lodging">')
+            }
+            if(parkings[i].services.securityCameras === true) {
+                img.push('<img src="../PicturesOfParkingServices/securityCameras2.png" alt="securityCameras">')
+            }
+            if(parkings[i].services.truckService === true) {
+                img.push('<img src="../PicturesOfParkingServices/service2.png" alt="truckService">')
+            }
+            if(parkings[i].services.shower === true) {
+                img.push('<img src="../PicturesOfParkingServices/shower2.png" alt="shower">')
+            }
+            if(parkings[i].services.store === true) {
+                img.push('<img src="../PicturesOfParkingServices/store2.png" alt="store">')
+            }
+            if(parkings[i].services.truckWash === true) {
+                img.push('<img src="../PicturesOfParkingServices/truckWash2.png" alt="truckWash">')
+            }
+            if(parkings[i].services.water === true) {
+                img.push('<img src="../PicturesOfParkingServices/water2.png" alt="water">')
+            }
+            if(parkings[i].services.wc === true) {
+                img.push('<img src="../PicturesOfParkingServices/wc2.png" alt="wc">')
+            }
+            if(parkings[i].services.wifi === true) {
+                img.push('<img src="../PicturesOfParkingServices/wifi2.png" alt="wifi">')
+            }
+
             const contentString =
 
                 '<div id="infoWindowContainer">' +
-                '<div id ="formName">' + parkingName + " " + totalSpot + "/" + totalSpot + '</div>' +
+                '<div id ="formName">' + parkings[i].parkingName + " " + parkings[i].spotsCurrently + "/" + parkings[i].spotsTotal + '</div>' +
                 '<div id ="formCoordinate">' + marker.getPosition() + '</div>' +
-                '<div id="formMidl">' + imageArr.toString()
-
-                + '</div>'
+                '<div id="formMidl">' + img.toString() + '</div>'
             '</div>'
 
-            function showMessage() {
-                write(imageArr);
-            }
-
-            // function showMessage() {
-            //     alert( marker.lat );
-            // }
-
-            //     parkingName +
-            // '<div id="content">' +
-            //     '<div id="siteNotice">' +
-            //
-            //     serv +
-            //     "</div>" +  + totalSpot +
-            //     '<h1 id="firstHeading" class="firstHeading"> </h1>' +
-            //     '<div id="bodyContent">' +
-            //     "<p>Here will be information about my parking and </p> <p>the services that the driver can get here</p>" +
-            //     '<p><a href=https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%BE%D1%8F%D0%BD%D0%BA%D0%B0_' +
-            //     '(%D1%81%D0%BE%D0%BE%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5)>' +
-            //     "what is parking?</a> " +
-            //     "(last visited June 22, 2009).</p>" +
-            //     "</div>" +
-            //     "</div>";
             const infowindow = new google.maps.InfoWindow({
                 content: contentString
 
@@ -250,14 +251,9 @@
             marker.addListener("click", () => {
                 infowindow.open(map, marker);
             });
-            markersMap.set(i + 1, marker);
+            markersArray.push(marker)
         }
     }
-
-
-    console.log(locations);
-    console.log(parkingNames);
-    console.log(spotsTotal);
 </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 

@@ -16,8 +16,9 @@ import java.util.List;
 public class ImplParkingsServicesCRUD implements CRUDRepository {
     private static final String FIND_BY_ID = "SELECT * FROM services WHERE id=?";
     private static final String FIND_ALL = "SELECT * FROM services ORDER BY id";
-    private static final String CREATE = "INSERT INTO services (id, login, password, first_name, " +
-            "last_name, phone_number,role_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String CREATE = "INSERT INTO services (id, fence, security_cameras, wc, " +
+            "shower, guarded_parking, lighting, electricity, water, gas_station, wifi, lodging, truck_service," +
+            "truck_wash, store, food ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String DELETE = "DELETE FROM services WHERE id=?";
     private static final String UPDATE = "UPDATE services SET fence=?, security_cameras=?, wc=?," +
             "shower=?, guarded_parking=?, lighting=?, electricity=?, water=?, gas_station=?, wifi=?," +
@@ -130,9 +131,11 @@ public class ImplParkingsServicesCRUD implements CRUDRepository {
             preparedStatement.setBoolean(10, servicesProvidedByParking.getGasStation());
             preparedStatement.setBoolean(11, servicesProvidedByParking.getWifi());
             preparedStatement.setBoolean(12, servicesProvidedByParking.getLodging());
-            preparedStatement.setBoolean(13, servicesProvidedByParking.getTruckWash());
-            preparedStatement.setBoolean(14, servicesProvidedByParking.getStore());
-            preparedStatement.setBoolean(15, servicesProvidedByParking.getFood());
+            preparedStatement.setBoolean(13, servicesProvidedByParking.getTruckService());
+            preparedStatement.setBoolean(14, servicesProvidedByParking.getTruckWash());
+            preparedStatement.setBoolean(15, servicesProvidedByParking.getStore());
+            preparedStatement.setBoolean(16, servicesProvidedByParking.getFood());
+            System.out.println(servicesProvidedByParking);
             int i = preparedStatement.executeUpdate();
             if (i == 1) {
                 return true;

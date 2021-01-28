@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class PhoneNumberValidation implements Validation {
     @Override
     public boolean validate(String phoneNumber) {
-        return isNotNull(phoneNumber) && isAllowableLogin(phoneNumber);
+        return isNotNull(phoneNumber) && isAllowablePhoneNumber(phoneNumber);
     }
 
     @Override
@@ -14,7 +14,7 @@ public class PhoneNumberValidation implements Validation {
         return phoneNumber != null;
     }
 
-    private boolean isAllowableLogin(String phoneNumber) {
+    private boolean isAllowablePhoneNumber(String phoneNumber) {
         Pattern pattern = Pattern.compile("\\d{11}");
         Matcher matcher = pattern.matcher(phoneNumber);
         return matcher.matches();

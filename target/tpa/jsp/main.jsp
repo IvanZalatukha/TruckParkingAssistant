@@ -7,9 +7,7 @@
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainPage.css">
-<jsp:include page="header.jsp">
-    <jsp:param name="list" value="true"/>
-</jsp:include>
+<jsp:include page="header.jsp" />
 
 <div id="container">
 
@@ -21,7 +19,7 @@
             Stay in touch with your drivers and inform them about available parking spaces.
             Check out our solutions and use all functionalities.</h2>
     </div>
-    <a class="b-ghost" href="<c:url value="/controller?command=connectWithUs"/>">CONNECT WITH US</a>
+    <a class="b-ghost" href="<c:url value="/controller?command=goToAdiminPage"/>">CONNECT WITH US</a>
     <a class="b-ghost" href="<c:url value="/controller?command=goToMapPage"/>">GO TO MAP</a>
 </div>
 

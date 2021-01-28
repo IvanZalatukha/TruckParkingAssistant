@@ -15,7 +15,7 @@ public class NameValidation implements Validation {
     }
 
     private boolean isAllowableName(String name) {
-        Pattern pattern = Pattern.compile("^[a-zA-Z0-9_]{4,12}$");
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9_]{4,14}$");
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();
     }

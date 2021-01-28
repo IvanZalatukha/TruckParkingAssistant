@@ -15,6 +15,7 @@ public enum CommandValue {
     REGISTRATION_USER("registrationUser"),
     FORGOT_PASSWORD("forgotPassword"),
     FORGOT_PASSWORD_PAGE("forgotPasswordPage"),
+    CHECKBOXES("goToCheckBoxes"),
     CONNECT_WITH_US("connectWithUs");
 
     private final String value;

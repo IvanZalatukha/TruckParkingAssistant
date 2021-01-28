@@ -19,7 +19,7 @@
 
     <script>
         locations.push({lat: ${parking.getCoordinateLatitude()}, lng: ${parking.getCoordinateLongitude()}})
-        parkingNames.push("${parking.getName()}")
+        parkingNames.push(${parking.getName()})
         spotsTotal.push(${parking.getSpotsTotal()})
     </script>
 
@@ -36,12 +36,17 @@
 
 <script>
 
-    function initMap(img) {
+
+    function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
             center: {lat: 53.89955, lng: 27.54606},
             zoom: 10,
             mapTypeId: "roadmap",
         });
+
+        console.log(locations);
+        console.log(parkingNames);
+        console.log(spotsTotal);
 
         let infoWindow = new google.maps.InfoWindow({});
         infoWindow.open(map);
@@ -247,9 +252,12 @@
             });
             markersMap.set(i + 1, marker);
         }
-
-
     }
+
+
+    console.log(locations);
+    console.log(parkingNames);
+    console.log(spotsTotal);
 </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 

@@ -23,12 +23,18 @@ public class GoToMapPage implements Command {
                 ImplParkingCRUD.getInstance().findAll());
 
         List<ServicesProvidedByParking> allServices = ImplParkingsServicesCRUD.getInstance().findAll();
+
+        for (int i = 0; i < allParkings.size(); i++) {
+            allParkings.get(i).setParkingServices(allServices.get(i));
+        }
+
+
         HttpSession httpSession = request.getSession();
 
         httpSession.setAttribute("allServices", allServices);
         httpSession.setAttribute("allParkings", allParkings);
 
-        System.out.println("set  MAAAAPPP attribute");
+
         return new ResponseContext(JspPath.MAP_PAGE.getPath(), ResponseType.FORWARD);
     }
 }

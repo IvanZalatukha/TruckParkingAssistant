@@ -1,0 +1,30 @@
+body {
+    background-image: url("../resourses/background-image.jpg");
+    -webkit-background-size: 100%;
+    background-color: #9fa1ac;
+}
+
+#bigContainer {
+    position: center;
+    margin: 80px;
+}
+
+#containerForCheckboxes {
+    height: 370px;
+    width: 350px;
+}
+
+#containerForMap {
+    height: 850px;
+    width: 1000px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+    float: right;
+}
+#containerForPagination {
+    height: 430px;
+    width: 670px;
+}
+

@@ -14,19 +14,18 @@
 <body>
 
 
-<main class="m-3">
+<main class="m-3" style="background-color: #ffffff">
 
     <div class="row col-md-6">
         <table class="table table-striped table-bordered table-sm">
             <tr>
                 <th>Name</th>
                 <th>Spots total</th>
-                <th>Spots Currently</th>
                 <th>Coordinate Latitude</th>
                 <th>Coordinate Longitude</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Show</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
 
             <c:forEach var="parking" items="${parkings}">
@@ -44,13 +43,13 @@
                     </td>
                     <td>
                         <form action="controller" method="post">
-                            <input type="hidden" name="command" value="goToPaginationPage">
+                            <input type="hidden" name="command" value="goToAdiminPage">
                             <input type="submit" class="page-link" name="submit" value="Update">
                         </form>
                     </td>
                     <td>
                         <form action="controller" method="post">
-                            <input type="hidden" name="command" value="goToPaginationPage">
+                            <input type="hidden" name="command" value="goToAdiminPage">
                             <input type="submit" class="page-link" name="submit" value="Delete">
                         </form>
                     </td>
@@ -64,7 +63,7 @@
             <c:if test="${currentPage != 1}">
                 <li class="page-item">
                     <form action="controller" method="post">
-                        <input type="hidden" name="command" value="goToPaginationPage">
+                        <input type="hidden" name="command" value="goToAdiminPage">
                         <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
                         <input type="hidden" name="currentPage" value="${currentPage-1}">
                         <input type="submit" class="page-link" name="submit" value="Previous">
@@ -83,7 +82,7 @@
                     <c:otherwise>
                         <li class="page-item">
                             <form action="controller" method="post">
-                                <input type="hidden" name="command" value="goToPaginationPage">
+                                <input type="hidden" name="command" value="goToAdiminPage">
                                 <input type="hidden" name="currentPage" value="${i}">
                                 <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
                                 <input type="submit" class="page-link" name="submit" value="${i}">
@@ -96,7 +95,7 @@
             <c:if test="${currentPage lt noOfPages}">
                 <li class="page-item">
                     <form action="controller" method="post">
-                        <input type="hidden" name="command" value="goToPaginationPage">
+                        <input type="hidden" name="command" value="goToAdiminPage">
                         <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
                         <input type="hidden" name="currentPage" value="${currentPage+1}">
                         <input type="submit" class="page-link" name="submit" value="Next">
