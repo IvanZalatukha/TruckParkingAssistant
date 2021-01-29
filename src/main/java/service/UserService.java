@@ -1,7 +1,7 @@
 package service;
 
 import dao.impl.ImplUserCRUD;
-import domain.User;
+import entity.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

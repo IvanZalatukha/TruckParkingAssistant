@@ -6,8 +6,8 @@ import command.ResponseContext;
 import command.ResponseType;
 import dao.impl.ImplParkingCRUD;
 import dao.impl.ImplParkingsServicesCRUD;
-import domain.Parking;
-import domain.ServicesProvidedByParking;
+import entity.Parking;
+import entity.ServicesProvidedByParking;
 import service.ParkingService;
 import service.SetRandomNumberOfCurrentSpots;
 
@@ -57,6 +57,15 @@ public class AdminMap implements Command {
 
             nOfPages++;
         }
+        System.out.println(request.getParameter("id"));
+        if(request.getParameter("id") != null) {
+            int i = Integer.parseInt(request.getParameter("id"));
+             Parking showParking = allParkings.get(i-1);
+            System.out.println(showParking);
+            httpSession.setAttribute("showParking", showParking);
+        }
+
+
 
         httpSession.setAttribute("noOfPages", nOfPages);
         httpSession.setAttribute("currentPage", currentPage);

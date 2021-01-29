@@ -4,7 +4,7 @@ import command.Command;
 import command.JspPath;
 import command.ResponseContext;
 import command.ResponseType;
-import domain.Parking;
+import entity.Parking;
 import service.ParkingService;
 
 import javax.servlet.http.HttpServletRequest;

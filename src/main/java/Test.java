@@ -1,12 +1,8 @@
 import dao.impl.ImplParkingsServicesCRUD;
 import dao.impl.ImplUserCRUD;
-import domain.ServicesProvidedByParking;
-import validation.EmailValidation;
+import entity.ServicesProvidedByParking;
 import validation.NameValidation;
-import validation.PhoneNumberValidation;
 import validation.SpotsValidate;
-
-import java.sql.*;
 
 
 public class Test {

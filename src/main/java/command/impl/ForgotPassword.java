@@ -5,7 +5,7 @@ import command.JspPath;
 import command.ResponseContext;
 import command.ResponseType;
 import dao.impl.ImplUserCRUD;
-import domain.User;
+import entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

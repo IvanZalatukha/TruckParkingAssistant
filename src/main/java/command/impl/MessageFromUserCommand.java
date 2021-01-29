@@ -5,7 +5,7 @@ import command.JspPath;
 import command.ResponseContext;
 import command.ResponseType;
 import dao.impl.ImplMessageCRUD;
-import domain.MessageFromUser;
+import entity.MessageFromUser;
 import validation.EmailValidation;
 
 import javax.servlet.http.HttpServletRequest;

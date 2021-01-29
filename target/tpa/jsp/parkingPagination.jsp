@@ -36,7 +36,7 @@
                     <td>${parking.getCoordinateLongitude()}</td>
                     <td>
                         <form action="controller" method="post">
-                            <input type="hidden" name="command" value="showParking">
+                            <input type="hidden" name="command" value="adminMap">
                             <input type="hidden" name="id" value="${parking.getId()}">
                             <input type="submit" class="page-link" name="submit" value="Show">
                         </form>

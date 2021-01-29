@@ -6,9 +6,9 @@ import command.ResponseContext;
 import command.ResponseType;
 import dao.impl.ImplParkingCRUD;
 import dao.impl.ImplParkingsServicesCRUD;
-import domain.Parking;
-import domain.ServicesProvidedByParking;
-import domain.User;
+import entity.Parking;
+import entity.ServicesProvidedByParking;
+import entity.User;
 import service.SetRandomNumberOfCurrentSpots;
 import service.UserService;
 

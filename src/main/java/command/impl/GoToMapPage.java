@@ -6,9 +6,9 @@ import command.ResponseContext;
 import command.ResponseType;
 import dao.impl.ImplParkingCRUD;
 import dao.impl.ImplParkingsServicesCRUD;
-import domain.Parking;
+import entity.Parking;
 import service.SetRandomNumberOfCurrentSpots;
-import domain.ServicesProvidedByParking;
+import entity.ServicesProvidedByParking;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -6,10 +6,9 @@ import command.ResponseContext;
 import command.ResponseType;
 import dao.impl.ImplParkingCRUD;
 import dao.impl.ImplParkingsServicesCRUD;
-import domain.Parking;
-import domain.ServicesProvidedByParking;
+import entity.Parking;
+import entity.ServicesProvidedByParking;
 import validation.CoordinateValidate;
-import validation.NameValidation;
 import validation.SpotsValidate;
 
 import javax.servlet.http.HttpServletRequest;

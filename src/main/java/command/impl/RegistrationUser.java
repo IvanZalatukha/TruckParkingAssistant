@@ -5,8 +5,8 @@ import command.JspPath;
 import command.ResponseContext;
 import command.ResponseType;
 import dao.impl.ImplUserCRUD;
-import domain.Role;
-import domain.User;
+import entity.Role;
+import entity.User;
 import validation.*;
 
 import javax.servlet.http.HttpServletRequest;

@@ -2,7 +2,7 @@ package dao.impl;
 
 import dao.CRUDRepository;
 import dao.pool.ConnectionPool;
-import domain.MessageFromUser;
+import entity.MessageFromUser;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

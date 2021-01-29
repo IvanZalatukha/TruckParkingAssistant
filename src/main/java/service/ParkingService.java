@@ -1,7 +1,7 @@
 package service;
 
 import dao.impl.ImplParkingCRUD;
-import domain.Parking;
+import entity.Parking;
 
 import java.util.List;
 

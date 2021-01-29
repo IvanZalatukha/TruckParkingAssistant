@@ -1,8 +1,8 @@
 package dao.impl;
 
 import dao.CRUDRepository;
-import domain.Role;
-import domain.User;
+import entity.Role;
+import entity.User;
 import dao.pool.ConnectionPool;
 
 import java.sql.Connection;

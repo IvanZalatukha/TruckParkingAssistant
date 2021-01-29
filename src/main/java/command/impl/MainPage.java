@@ -1,8 +1,6 @@
 package command.impl;
 
 import command.*;
-import dao.impl.ImplUserCRUD;
-import domain.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

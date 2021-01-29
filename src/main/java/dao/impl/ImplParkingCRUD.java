@@ -2,7 +2,7 @@ package dao.impl;
 
 import dao.CRUDRepository;
 import dao.pool.ConnectionPool;
-import domain.Parking;
+import entity.Parking;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

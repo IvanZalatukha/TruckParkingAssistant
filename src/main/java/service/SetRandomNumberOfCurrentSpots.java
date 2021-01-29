@@ -1,6 +1,6 @@
 package service;
 
-import domain.Parking;
+import entity.Parking;
 
 import java.util.List;
 import java.util.Random;

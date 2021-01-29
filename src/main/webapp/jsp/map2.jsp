@@ -13,7 +13,6 @@
 </script>
 
 <c:forEach var="parking" items="${allParkings}">
-
     <script>
             parkings.push(
                 {
@@ -34,11 +33,21 @@
 
             )
     </script>
-
-
 </c:forEach>
 
-
+<c:if test="${showParking != null}">
+    <script>
+        var showPark = []
+        showPark.push(
+            {
+                "coordinates": {lat: ${showParking.getCoordinateLatitude()}, lng: ${showParking.getCoordinateLongitude()}},
+                "parkingName": "${showParking.getName()}",
+                "spotsTotal":"${showParking.getSpotsTotal()}",
+                "spotsCurrently": "${showParking.getSpotsCurrently()}"
+            }
+        )
+    </script>
+</c:if>
 
 <script>
 
@@ -253,7 +262,26 @@
             });
             markersArray.push(marker)
         }
+        var pinIcon = new google.maps.MarkerImage(
+            "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FFFF00",
+            null, /* size is determined at runtime */
+            null, /* origin is 0,0 */
+            null, /* anchor is bottom center of the scaled image */
+            new google.maps.Size(42, 68)
+        );
+        const showMarker = new google.maps.Marker({
+            position: showPark[0].coordinates,
+            map: map,
+            title: showPark[0].parkingName,
+            animation: google.maps.Animation.DROP
+
+        });
+        showMarker.setIcon(pinIcon);
+
+
+
     }
+
 </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
