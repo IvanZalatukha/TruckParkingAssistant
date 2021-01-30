@@ -303,7 +303,7 @@
 </div>
 
 <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkjeJ2RVdg225f2paPwjcgVOusnmH2-TQ&callback=initMap&libraries=places&v=weekly">
+        src="https://maps.googleapis.com/maps/api/js?key=YOURAPI&callback=initMap&libraries=places&v=weekly">
 </script>
 
 </body>
