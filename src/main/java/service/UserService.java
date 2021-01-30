@@ -7,6 +7,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class UserService {
+
     public static Boolean login(User user) {
         User findUser = ImplUserCRUD.getInstance().findByLogin(user.getLogin());
         if (findUser != null) {

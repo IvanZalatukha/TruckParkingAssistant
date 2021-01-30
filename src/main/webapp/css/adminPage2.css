@@ -2,11 +2,12 @@ body {
     background-image: url("../resourses/background-image.jpg");
     -webkit-background-size: 100%;
     background-color: #9fa1ac;
+
 }
 
 #bigContainer {
     position: center;
-    margin: 80px;
+    margin: 70px;
 }
 
 #containerForCheckboxes {
@@ -15,7 +16,7 @@ body {
 }
 
 #containerForMap {
-    height: 850px;
+    height: 750px;
     width: 1000px;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
@@ -27,4 +28,3 @@ body {
     height: 430px;
     width: 670px;
 }
-

@@ -34,7 +34,7 @@ public class CommandProvider {
         commandMatching.put(CommandValue.FORGOT_PASSWORD.getValue(), new ForgotPassword());
         commandMatching.put(CommandValue.FORGOT_PASSWORD_PAGE.getValue(), new ForgotPasswordPage());
         commandMatching.put(CommandValue.CHECKBOXES.getValue(), new Checkboxes());
-
+        commandMatching.put(CommandValue. SWITCH_LOCALE.getValue(), new LocaleSwitch());
     }
 
     public Command getCommand(HttpServletRequest request) {

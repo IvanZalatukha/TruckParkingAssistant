@@ -1,45 +1,52 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="locale"
+       value="${not empty sessionScope.locale ? sessionScope.locale : 'en_US'}"/>
+<fmt:setLocale value="${locale}" scope="session"/>
+<fmt:setBundle basename="content"/>
+
 <html>
 <head>
     <title>Title</title>
 </head>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/connectWithUsPage.css">
+<jsp:include page="header.jsp"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/connectWithUsPage2.css">
 
 <body>
 
-<div class="wrapper">
-    <div id="formContent">
-        <h2 class="active">You can write to us</h2>
+    <div id="wrapper">
+        <div id="formContent">
+            <h2 class="active"><fmt:message key="title.canWrite"/></h2>
 
-        <form action="controller" method="post">
-            <input type="text" placeholder="Name" name="name">
-            <input type="text" placeholder="Email" name="email">
-            <input type="text" placeholder="Topic" name="topic">
-            <textarea maxlength="650" placeholder="Text" name="text"></textarea>
-            <input type="hidden" name="command" value="messageFromUser">
-            <input type="submit" value="Send a message">
-        </form>
-        <div>
-            <c:if test="${validInput == true}">
-                <p id="validInput">Thank you for your message</p>
-                <c:remove var="validInput" scope="session"/>
-            </c:if>
-            <c:if test="${wrongInput == true}">
-                <p id="invalidInput">Please fill in the fields name and email to send a message</p>
-                <c:remove var="wrongInput" scope="session"/>
-            </c:if>
-            <c:if test="${wrongEmailInput == true}">
-                <p id="invalidInput">Incorrect email adress</p>
-                <c:remove var="wrongEmailInput" scope="session"/>
-            </c:if>
+            <form action="controller" method="post">
+                <input type="text" placeholder="<fmt:message key="title.name"/>" name="name">
+                <input type="text" placeholder="<fmt:message key="title.email"/>" name="email">
+                <input type="text" placeholder="<fmt:message key="title.topic"/>" name="topic">
+                <textarea maxlength="650" placeholder="<fmt:message key="title.text"/>" name="text"></textarea>
+                <input type="hidden" name="command" value="messageFromUser">
+                <input type="submit" value="<fmt:message key="button.sendMessage"/>">
+            </form>
+            <div>
+                <c:if test="${validInput == true}">
+                    <p id="validInput"><fmt:message key="text.thanks"/></p>
+                    <c:remove var="validInput" scope="session"/>
+                </c:if>
+                <c:if test="${wrongInput == true}">
+                    <p id="invalidInput"><fmt:message key="text.wrong"/></p>
+                    <c:remove var="wrongInput" scope="session"/>
+                </c:if>
+                <c:if test="${wrongEmailInput == true}">
+                    <p id="invalidInput"><fmt:message key="text.invalid"/></p>
+                    <c:remove var="wrongEmailInput" scope="session"/>
+                </c:if>
 
+            </div>
         </div>
     </div>
-</div>
 
 
-<jsp:include page="header.jsp"/>
+
 
 <div id="formMap"></div>
 <script>
@@ -53,7 +60,7 @@
             map: map,
             animation: google.maps.Animation.DROP
         });
-        const contentString = 'We are here'
+        const contentString = '<fmt:message key="text.marker"/>'
 
         const infowindow = new google.maps.InfoWindow({
             content: contentString,
@@ -63,7 +70,7 @@
     }
 </script>
 <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkjeJ2RVdg225f2paPwjcgVOusnmH2-TQ&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
 </script>
 </body>
 </html>

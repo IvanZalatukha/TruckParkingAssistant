@@ -5,10 +5,12 @@
     <title>Title</title>
 </head>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/adminPage2.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 <jsp:include page="header.jsp" />
 <body>
     <div id="bigContainer">
         <div id="containerForMap">
+
             <jsp:include page="map2.jsp" />
         </div>
 

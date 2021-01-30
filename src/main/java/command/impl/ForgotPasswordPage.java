@@ -7,6 +7,7 @@ import command.ResponseType;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ForgotPasswordPage implements Command {
     @Override

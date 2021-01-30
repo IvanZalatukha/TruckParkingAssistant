@@ -1,40 +1,39 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="locale"
+       value="${not empty sessionScope.locale ? sessionScope.locale : 'en_US'}"/>
+<fmt:setLocale value="${locale}" scope="session"/>
+<fmt:setBundle basename="content"/>
 <html>
 <head>
     <title>Title</title>
 </head>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ourServicePage.css">
+<jsp:include page="header.jsp" />
 <body>
-<jsp:include page="header.jsp">
-    <jsp:param name="list" value="true"/>
-</jsp:include>
+
 
 <div id="container">
     <div id="topHeader">
-        <h1>We provide</h1>
-        <h2>Truck Parking Assistant offers you an easy to use platform to find</h2>
-        <h2>and book secure truck parking locations.</h2>
-        <h2>Helping you limit cargo-theft, minimise search traffic and contribute to a</h2>
-        <h2>safer working environment for drivers.</h2>
-        <h2>Find a secure parking spot in 155 countries</h2>
+        <h1><fmt:message key="h1.provide"/></h1>
+        <h2><fmt:message key="h2.tpa"/></h2>
+        <h2><fmt:message key="h2.tpa2"/></h2>
+        <h2><fmt:message key="h2.tpa3"/></h2>
+        <h2><fmt:message key="h2.tpa4"/></h2>
+        <h2><fmt:message key="h2.tpa5"/></h2>
     </div>
     <div class="advantages">
-        <h1>Safety.</h1>
-        <h3>Providing your driver with secure parking areas along their route will not only provide them with comfort,
-            but will also give you the peace of mind knowing your cargo and driver are safe. A win-win for the both of
-            you.</h3>
+        <h1><fmt:message key="h1.safety"/></h1>
+        <h3><fmt:message key="h3.providing"/>.</h3>
     </div>
     <div class="advantages">
-        <h1>Simplicity.</h1>
-        <h3>Less time searching, more time driving. No longer waste fuel or precious driving time looking for a secure
-            parking spot.
-            You can send them directly to an en-route location that has all facilities that you and your driver
-            require.</h3>
+        <h1><fmt:message key="h1.simplicity"/></h1>
+        <h3><fmt:message key="h3.less"/></h3>
     </div>
     <div class="advantagesLastElement">
-        <h1>Reliability.</h1>
-        <h3>Not only streamline your administration but offer your drivers a safe and comfortable work environment.
-            Be the top-notch employer you need to be to attract talented drivers.</h3>
+        <h1><fmt:message key="h1.reliability"/></h1>
+        <h3><fmt:message key="h3.notOnle"/></h3>
     </div>
 
 </div>

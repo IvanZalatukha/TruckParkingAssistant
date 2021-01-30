@@ -16,6 +16,7 @@ public enum CommandValue {
     FORGOT_PASSWORD("forgotPassword"),
     FORGOT_PASSWORD_PAGE("forgotPasswordPage"),
     CHECKBOXES("goToCheckBoxes"),
+    SWITCH_LOCALE("switchLocale"),
     CONNECT_WITH_US("connectWithUs");
 
     private final String value;

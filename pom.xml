@@ -10,7 +10,7 @@
   <packaging>war</packaging>
 
   <name>tpa Maven Webapp</name>
-  <url>http://www.example.com</url>
+  <url>http://www.tpa.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -82,11 +82,14 @@
       <artifactId>tomcat-embed-core</artifactId>
       <version>9.0.37</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.15</version>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.7</version>
     </dependency>
+
 
   </dependencies>
 

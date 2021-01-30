@@ -1,5 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="locale"
+       value="${not empty sessionScope.locale ? sessionScope.locale : 'en_US'}"/>
+<fmt:setLocale value="${locale}" scope="session"/>
+<fmt:setBundle basename="content"/>
 <html>
 <head>
     <title>Title</title>
@@ -12,15 +17,13 @@
 <div id="container">
 
     <div id="aboutUs">
-        <h1>Safety.</h1>
-        <h1>Simplicity.</h1>
-        <h1>Reliability.</h1>
-        <h2>Find out what you and your company get from using the WEB Truck Parking Assistant tool.
-            Stay in touch with your drivers and inform them about available parking spaces.
-            Check out our solutions and use all functionalities.</h2>
+        <h1><fmt:message key="h1.safety"/></h1>
+        <h1><fmt:message key="h1.simplicity"/></h1>
+        <h1><fmt:message key="h1.reliability"/></h1>
+        <h2><fmt:message key="h2.findOut"/></h2>
     </div>
-    <a class="b-ghost" href="<c:url value="/controller?command=goToAdiminPage"/>">CONNECT WITH US</a>
-    <a class="b-ghost" href="<c:url value="/controller?command=goToMapPage"/>">GO TO MAP</a>
+    <a class="b-ghost" href="<c:url value="/controller?command=goToAdiminPage"/>"><fmt:message key="button.connect"/></a>
+    <a class="b-ghost" href="<c:url value="/controller?command=goToMapPage"/>"><fmt:message key="button.goToMap"/></a>
 </div>
 
 </body>

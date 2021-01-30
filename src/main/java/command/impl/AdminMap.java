@@ -20,6 +20,7 @@ public class AdminMap implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
 
+
         List<Parking> allParkings = SetRandomNumberOfCurrentSpots.setCurrentSpots(
                 ImplParkingCRUD.getInstance().findAll());
 
@@ -34,6 +35,9 @@ public class AdminMap implements Command {
         httpSession.setAttribute("allServices", allServices);
         httpSession.setAttribute("allParkings", allParkings);
 
+        if(httpSession.getAttribute("showParking") != null){
+            httpSession.removeAttribute("showParking");
+        }
 
         int currentPage = 1;
         int recordsPerPage = 5;
@@ -57,14 +61,21 @@ public class AdminMap implements Command {
 
             nOfPages++;
         }
-        System.out.println(request.getParameter("id"));
-        if(request.getParameter("id") != null) {
+
+        if (request.getParameter("id") != null) {
             int i = Integer.parseInt(request.getParameter("id"));
-             Parking showParking = allParkings.get(i-1);
+            Parking showParking = allParkings.get(i - 1);
             System.out.println(showParking);
             httpSession.setAttribute("showParking", showParking);
         }
-
+        if (request.getParameter("delete") != null) {
+            int i = Integer.parseInt(request.getParameter("delete"));
+            ImplParkingCRUD.getInstance().delete(i);
+        }
+        if (request.getParameter("update") != null) {
+            int i = Integer.parseInt(request.getParameter("update"));
+            Parking updateParking = allParkings.get(i - 1);
+        }
 
 
         httpSession.setAttribute("noOfPages", nOfPages);

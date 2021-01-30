@@ -43,13 +43,15 @@
                     </td>
                     <td>
                         <form action="controller" method="post">
-                            <input type="hidden" name="command" value="goToAdiminPage">
+                            <input type="hidden" name="command" value="adminMap">
+                            <input type="hidden" name="update" value="${parking.getId()}">
                             <input type="submit" class="page-link" name="submit" value="Update">
                         </form>
                     </td>
                     <td>
                         <form action="controller" method="post">
-                            <input type="hidden" name="command" value="goToAdiminPage">
+                            <input type="hidden" name="command" value="adminMap">
+                            <input type="hidden" name="delete" value="${parking.getId()}">
                             <input type="submit" class="page-link" name="submit" value="Delete">
                         </form>
                     </td>

@@ -3,13 +3,11 @@
     border-radius: 10px 10px 10px 10px;
     background: #fff;
     padding: 30px;
-    width: 90%;
-    max-width: 350px;
+    width: 350px;
     position: relative;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
-    margin-top: 30px;
     font-family: "Open Sans", sans-serif;
     margin-left: 150px;
 }
@@ -33,7 +31,7 @@ label {
     height: 35px;
     display: inline-block;
     position: relative;
-    margin: 15px;
+    margin: 10px;
 }
 
 #totalSpots {

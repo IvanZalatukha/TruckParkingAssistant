@@ -18,6 +18,12 @@ import java.util.List;
 public class GoToMapPage implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession httpSession = request.getSession();
+
+        if(httpSession.getAttribute("showParking") != null){
+            httpSession.removeAttribute("showParking");
+        }
+
 
         List<Parking> allParkings = SetRandomNumberOfCurrentSpots.setCurrentSpots(
                 ImplParkingCRUD.getInstance().findAll());
@@ -29,7 +35,6 @@ public class GoToMapPage implements Command {
         }
 
 
-        HttpSession httpSession = request.getSession();
 
         httpSession.setAttribute("allServices", allServices);
         httpSession.setAttribute("allParkings", allParkings);

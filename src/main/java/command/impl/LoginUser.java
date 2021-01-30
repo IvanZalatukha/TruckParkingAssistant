@@ -27,12 +27,14 @@ public class LoginUser implements Command {
             currentUser.setLogin(login);
             currentUser.setPassword(password);
             if (UserService.login(currentUser)) {
-
                 List<Parking> allParkings = SetRandomNumberOfCurrentSpots.setCurrentSpots(
                         ImplParkingCRUD.getInstance().findAll());
                 List<ServicesProvidedByParking> allServices = ImplParkingsServicesCRUD.getInstance().findAll();
-
+                for (int i = 0; i < allParkings.size(); i++) {
+                    allParkings.get(i).setParkingServices(allServices.get(i));
+                }
                 HttpSession httpSession = request.getSession();
+
                 httpSession.setAttribute("allServices", allServices);
                 httpSession.setAttribute("allParkings", allParkings);
 
