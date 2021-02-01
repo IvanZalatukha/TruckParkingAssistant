@@ -37,6 +37,7 @@ public class LoginUser implements Command {
 
                 httpSession.setAttribute("allServices", allServices);
                 httpSession.setAttribute("allParkings", allParkings);
+                httpSession.setAttribute("isUser", true);
 
                 return new ResponseContext(JspPath.MAP_PAGE.getPath(), ResponseType.FORWARD);
             }
