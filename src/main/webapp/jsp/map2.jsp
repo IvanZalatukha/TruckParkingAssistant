@@ -90,7 +90,7 @@
         searchBox.addListener("places_changed", () => {
             const places = searchBox.getPlaces();
 
-            if (places.length == 0) {
+            if (places.length === 0) {
                 return;
             }
             // Clear out the old markers.
@@ -235,18 +235,28 @@
                 img.push('<img src="../PicturesOfParkingServices/wifi2.png" alt="wifi">')
             }
 
+            var cord = marker.getPosition()
+            var copyButton = document.createElement("button");
+            copyButton.addEventListener("click",copyFunction)
+            function copyFunction() {
+                cord.select();
+                document.execCommand("copy");
+            }
             const contentString =
 
                 '<div id="infoWindowContainer">' +
-                '<div id ="formName">' + parkings[i].parkingName + " " + parkings[i].spotsCurrently + "/" + parkings[i].spotsTotal + '</div>' +
-                '<div id ="formCoordinate">' + marker.getPosition() + '</div>' +
+                '<div id ="formName">' + parkings[i].parkingName.big().bold() + " " + parkings[i].spotsCurrently.big().bold() + "/" +
+                parkings[i].spotsTotal.big().bold() + '</div>' +
+                '<div id ="formCoordinate">' + cord + '<button type="submit" onclick="cord.select().execCommand(copy)"</button>' + '</div>' +
                 '<div id="formMidl">' + img.toString() + '</div>'
             '</div>'
 
             const infowindow = new google.maps.InfoWindow({
                 content: contentString
-
             });
+
+
+
             marker.addListener("click", () => {
                 infowindow.open(map, marker);
             });
@@ -275,7 +285,6 @@
 </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-</body>
 <input
         id="pac-input"
         class="controls"

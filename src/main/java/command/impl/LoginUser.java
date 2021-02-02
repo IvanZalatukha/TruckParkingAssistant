@@ -22,6 +22,7 @@ public class LoginUser implements Command {
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
+        HttpSession httpSession = request.getSession();
         if (!login.isEmpty() && !password.isEmpty()){
             User currentUser = new User();
             currentUser.setLogin(login);
@@ -33,7 +34,11 @@ public class LoginUser implements Command {
                 for (int i = 0; i < allParkings.size(); i++) {
                     allParkings.get(i).setParkingServices(allServices.get(i));
                 }
-                HttpSession httpSession = request.getSession();
+                if (currentUser.getLogin().equals("admin")) {
+                    httpSession.setAttribute("isAdmin", true);
+                    return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
+                }
+
 
                 httpSession.setAttribute("allServices", allServices);
                 httpSession.setAttribute("allParkings", allParkings);
@@ -43,7 +48,7 @@ public class LoginUser implements Command {
                 return new ResponseContext(JspPath.MAP_PAGE.getPath(), ResponseType.REDIRECT);
             }
         }
-        HttpSession httpSession = request.getSession();
+
         httpSession.setAttribute("wrongInput", true);
         return new ResponseContext(JspPath.SIGN_IN_PAGE.getPath(), ResponseType.REDIRECT);
     }

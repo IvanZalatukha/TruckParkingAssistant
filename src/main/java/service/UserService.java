@@ -11,12 +11,14 @@ public class UserService {
     public static Boolean login(User user) {
         User findUser = ImplUserCRUD.getInstance().findByLogin(user.getLogin());
         if (findUser != null) {
-            return getMd5Hash(user.getPassword()).equals(getMd5Hash(findUser.getPassword()));
+           if((getMd5Hash(user.getPassword())).equals(findUser.getPassword())) {
+               return true;
+           }
         }
         return false;
     }
 
-    private static String getMd5Hash(String source) {
+    public static String getMd5Hash(String source) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             md.update(source.getBytes());
@@ -27,7 +29,7 @@ public class UserService {
         }
     }
 
-    private static String bytesToHex(byte[] bytes) {
+    public static String bytesToHex(byte[] bytes) {
         StringBuilder builder = new StringBuilder();
         for (Byte b : bytes) {
             builder.append(String.format("%02x", b & 0xff));

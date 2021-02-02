@@ -7,7 +7,7 @@ body {
 
 #bigContainer {
     position: center;
-    margin: 70px;
+    margin: 50px;
 }
 
 #containerForCheckboxes {
@@ -22,7 +22,9 @@ body {
     border-radius: 10px 10px 10px 10px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-    float: right;
+    position: absolute;
+    right: 100px;
+    top: 200px;
 }
 #containerForPagination {
     height: 430px;

@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/locale.css">
     <div id="logo">
-        <a href="<c:url value="/jsp/controller"/>">Truck Parking Assistant</a>
+        <a>Truck Parking Assistant</a>
     </div>
     <ul id="navbar">
         <li><a href="<c:url value="/jsp/controller"/>"><fmt:message key="link.home"/></a></li>
@@ -20,8 +20,11 @@
         <li><a href="<c:url value="/jsp/controller?command=connectWithUs"/>"><fmt:message key="link.contact"/></a></li>
         <c:if test="${isUser}">
             <c:remove var="isUserWithoutLogin" scope="application"/>
-
-            <li><a href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message key="link.signOut"/></a></li>
+            <li><a href="<c:url value="/jsp/controller?command=goSignOutPage"/>"><fmt:message key="link.signOut"/></a></li>
+        </c:if>
+        <c:if test="${isAdmin}">
+            <c:remove var="isUserWithoutLogin" scope="application"/>
+            <li><a href="<c:url value="/jsp/controller?command=goSignOutPage"/>"><fmt:message key="link.signOut"/></a></li>
         </c:if>
         <c:if test="${isUserWithoutLogin}">
             <li><a href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message key="link.signIn"/></a></li>

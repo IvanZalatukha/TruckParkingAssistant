@@ -1,6 +1,8 @@
 .containerForLocal {
     height: 30px;
     width: 120px;
+    position: relative;
+    left: 20%
 }
 
 .switch {

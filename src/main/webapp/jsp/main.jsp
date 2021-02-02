@@ -7,8 +7,7 @@
 <fmt:setBundle basename="content"/>
 <html>
 <head>
-    <title>Title</title>
-
+    <title>TPA</title>
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainPage.css">
@@ -22,8 +21,11 @@
         <h1><fmt:message key="h1.reliability"/></h1>
         <h2><fmt:message key="h2.findOut"/></h2>
     </div>
-    <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToAdiminPage"/>"><fmt:message key="button.connect"/></a>
+    <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToAdminPage"/>"><fmt:message key="button.connect"/></a>
     <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToMapPage"/>"><fmt:message key="button.goToMap"/></a>
+    <c:if test="${isAdmin}">
+        <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToAdminPage"/>">Admin</a>
+    </c:if>
 </div>
 
 </body>

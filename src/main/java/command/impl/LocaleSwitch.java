@@ -23,10 +23,6 @@ public class LocaleSwitch implements Command {
         session.setAttribute("locale", "en_US");
         System.out.println();
 
-//        session.setAttribute("locale", "en_US");
-//        session.setAttribute("locale", "ru_RU");
-
-
         return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

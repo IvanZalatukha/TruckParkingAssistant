@@ -4,6 +4,7 @@ import dao.CRUDRepository;
 import entity.Role;
 import entity.User;
 import dao.pool.ConnectionPool;
+import service.UserService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -127,7 +128,7 @@ public class ImplUserCRUD implements CRUDRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(CREATE);
             preparedStatement.setInt(1, user.getId());
             preparedStatement.setString(2, user.getLogin());
-            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(3, UserService.getMd5Hash(user.getPassword()));
             preparedStatement.setString(4, user.getFirstName());
             preparedStatement.setString(5, user.getLastName());
             preparedStatement.setString(6, user.getEmail());
@@ -166,7 +167,7 @@ public class ImplUserCRUD implements CRUDRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
 
             preparedStatement.setString(1, user.getLogin());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(2, UserService.getMd5Hash(user.getPassword()));
             preparedStatement.setString(3, user.getFirstName());
             preparedStatement.setString(4, user.getLastName());
             preparedStatement.setString(5, user.getEmail());

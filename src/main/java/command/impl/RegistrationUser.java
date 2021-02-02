@@ -63,7 +63,7 @@ public class RegistrationUser implements Command {
             return new ResponseContext(JspPath.REGISTRATION_PAGE.getPath(), ResponseType.REDIRECT);
         }
         if(ImplUserCRUD.getInstance().findByLogin(login) != null) {
-            httpSession.setAttribute("loginAlredyHas", true);
+            httpSession.setAttribute("loginAlreadyHas", true);
             return new ResponseContext(JspPath.REGISTRATION_PAGE.getPath(), ResponseType.REDIRECT);
         }
 

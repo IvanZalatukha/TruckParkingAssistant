@@ -20,6 +20,7 @@ public class CommandProvider {
     private CommandProvider() {
         commandMatching.put(CommandValue.ERROR.getValue(), new ErrorInRequestPage());
         commandMatching.put(CommandValue.SIGN_IN_PAGE.getValue(), new SignInPage());
+        commandMatching.put(CommandValue.SIGN_OUT_PAGE.getValue(), new LogoutUser());
         commandMatching.put(CommandValue.LOGIN_USER.getValue(), new LoginUser());
         commandMatching.put(CommandValue.ADMIN_MAP.getValue(), new AdminMap());
         commandMatching.put(CommandValue.ADMIN_PAGE.getValue(), new AdminMap());
@@ -34,7 +35,7 @@ public class CommandProvider {
         commandMatching.put(CommandValue.FORGOT_PASSWORD.getValue(), new ForgotPassword());
         commandMatching.put(CommandValue.FORGOT_PASSWORD_PAGE.getValue(), new ForgotPasswordPage());
         commandMatching.put(CommandValue.CHECKBOXES.getValue(), new Checkboxes());
-        commandMatching.put(CommandValue. SWITCH_LOCALE.getValue(), new LocaleSwitch());
+        commandMatching.put(CommandValue.SWITCH_LOCALE.getValue(), new LocaleSwitch());
     }
 
     public Command getCommand(HttpServletRequest request) {

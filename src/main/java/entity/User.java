@@ -96,14 +96,6 @@ public class User implements Entity, Serializable {
         this.id = id;
     }
 
-    public static int getCurrentID() {
-        return currentID;
-    }
-
-    public static void setCurrentID(int currentID) {
-        User.currentID = currentID;
-    }
-
     public String getEmail() {
         return email;
     }
