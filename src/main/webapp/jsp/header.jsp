@@ -10,7 +10,7 @@
 <head>
     <title>header</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/locale2.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/locale.css">
     <div id="logo">
         <a href="<c:url value="/jsp/controller"/>">Truck Parking Assistant</a>
     </div>
