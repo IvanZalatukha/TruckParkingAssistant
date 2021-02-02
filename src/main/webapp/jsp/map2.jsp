@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,7 @@
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/infoWindowOnTheMap.css">
-
+<jsp:include page="header.jsp" />
 <script>
     var parkings = []
 </script>
@@ -129,18 +131,6 @@
             });
             map.fitBounds(bounds);
         });
-
-
-        const homeButton = document.createElement("button");
-        homeButton.textContent = "HOME";
-        homeButton.classList.add("custom-map-control-button");
-        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeButton);
-
-
-        const signInButton = document.createElement("button");
-        signInButton.textContent = "SIGN IN";
-        signInButton.classList.add("custom-map-control-button");
-        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(signInButton);
 
         infoWindow = new google.maps.InfoWindow();
         const locationButton = document.createElement("button");
@@ -267,7 +257,7 @@
             null, /* size is determined at runtime */
             null, /* origin is 0,0 */
             null, /* anchor is bottom center of the scaled image */
-            new google.maps.Size(42, 68)
+            new google.maps.Size(35, 38)
         );
         const showMarker = new google.maps.Marker({
             position: showPark[0].coordinates,
@@ -293,8 +283,11 @@
         placeholder="Search Box"
 />
 <style>
+    html {
+        background-color: #adaeb3;
+    }
     #map {
-        height: 940px;
+        height: 900px;
         width: 100%;
     }
 </style>

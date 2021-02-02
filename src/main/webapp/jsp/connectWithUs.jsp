@@ -19,7 +19,7 @@
         <div id="formContent">
             <h2 class="active"><fmt:message key="title.canWrite"/></h2>
 
-            <form action="controller" method="post">
+            <form action="/jsp/controller" method="post">
                 <input type="text" placeholder="<fmt:message key="title.name"/>" name="name">
                 <input type="text" placeholder="<fmt:message key="title.email"/>" name="email">
                 <input type="text" placeholder="<fmt:message key="title.topic"/>" name="topic">
@@ -70,7 +70,7 @@
     }
 </script>
 <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkjeJ2RVdg225f2paPwjcgVOusnmH2-TQ&callback=initMap">
 </script>
 </body>
 </html>

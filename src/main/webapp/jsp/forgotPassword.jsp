@@ -18,7 +18,7 @@
     <div id="formContent">
         <h2 class="active"><fmt:message key="text.please"/></h2>
 
-        <form action="controller" method="post">
+        <form action="/jsp/controller" method="post">
             <input type="text" class="fadeIn second" placeholder="<fmt:message key="input.login"/>" name="login">
             <input type="text" class="fadeIn third" placeholder="<fmt:message key="input.email"/>" name="email">
             <input type="hidden" name="command" value="forgotPassword">

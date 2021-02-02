@@ -26,17 +26,17 @@ public class MessageFromUserCommand implements Command {
             EmailValidation emailValidation = new EmailValidation();
             if (!emailValidation.validate(email)) {
                 httpSession.setAttribute("wrongEmailInput", true);
-                return new ResponseContext(JspPath.CONNECT_WITH_US_PAGE.getPath(), ResponseType.FORWARD);
+                return new ResponseContext(JspPath.CONNECT_WITH_US_PAGE.getPath(), ResponseType.REDIRECT);
             }
 
             MessageFromUser message = new MessageFromUser(name, email, topic, text);
             message.setId(ImplMessageCRUD.getInstance().numberOfMessages() + 1);
             ImplMessageCRUD.getInstance().create(message);
             httpSession.setAttribute("validInput", true);
-            return new ResponseContext(JspPath.CONNECT_WITH_US_PAGE.getPath(), ResponseType.FORWARD);
+            return new ResponseContext(JspPath.CONNECT_WITH_US_PAGE.getPath(), ResponseType.REDIRECT);
         }
 
         httpSession.setAttribute("wrongInput", true);
-        return new ResponseContext(JspPath.CONNECT_WITH_US_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.CONNECT_WITH_US_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

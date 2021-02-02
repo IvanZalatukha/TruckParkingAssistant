@@ -1,7 +1,7 @@
 .idea
 .gradle
 build/
-
+.mf
 *.iml
 *.class
 .classpat

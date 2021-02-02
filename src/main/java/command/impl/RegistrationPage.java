@@ -11,6 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 public class RegistrationPage implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
-        return new ResponseContext(JspPath.REGISTRATION_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.REGISTRATION_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

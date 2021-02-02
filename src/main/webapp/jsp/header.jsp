@@ -10,28 +10,27 @@
 <head>
     <title>header</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/locale.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/locale2.css">
     <div id="logo">
-        <a href="<c:url value="/controller"/>">Truck Parking Assistant</a>
+        <a href="<c:url value="/jsp/controller"/>">Truck Parking Assistant</a>
     </div>
-
     <ul id="navbar">
-        <li><a href="<c:url value="/controller"/>"><fmt:message key="link.home"/></a></li>
-        <li><a href="<c:url value="/controller?command=ourService"/>"><fmt:message key="link.ourService"/></a></li>
-        <li><a href="<c:url value="/controller?command=connectWithUs"/>"><fmt:message key="link.contact"/></a></li>
+        <li><a href="<c:url value="/jsp/controller"/>"><fmt:message key="link.home"/></a></li>
+        <li><a href="<c:url value="/jsp/controller?command=ourService"/>"><fmt:message key="link.ourService"/></a></li>
+        <li><a href="<c:url value="/jsp/controller?command=connectWithUs"/>"><fmt:message key="link.contact"/></a></li>
         <c:if test="${isUser}">
             <c:remove var="isUserWithoutLogin" scope="application"/>
-            <li><a href="<c:url value="/controller?command=goSignInPage"/>"><fmt:message key="link.signOut"/></a></li>
+
+            <li><a href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message key="link.signOut"/></a></li>
         </c:if>
         <c:if test="${isUserWithoutLogin}">
-            <li><a href="<c:url value="/controller?command=goSignInPage"/>"><fmt:message key="link.signIn"/></a></li>
+            <li><a href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message key="link.signIn"/></a></li>
         </c:if>
-
 
         <li><a>
             <div class="containerForLocal">
                 <div class="switch">
-                    <form action="controller" method="post" id="forLanguageForm">
+                    <form action="<c:url value="/jsp/controller"/>" method="post" id="forLanguageForm">
                         <input type="hidden" name="flag" value="ready">
                         <input type="radio" class="switch-input" onclick="this.form.submit();" name="command"
                                value="switchLocale" id="en" checked>
@@ -50,8 +49,9 @@
         </a>
         </li>
     </ul>
-
-
+    <c:if test="${user != null}">
+        <p style="color: white; height: 18px">Welcome ${user.getLogin()}</p>
+    </c:if>
 </head>
 <body>
 </body>

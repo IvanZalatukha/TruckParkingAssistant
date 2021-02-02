@@ -37,7 +37,7 @@ public class ParkingPagination implements Command {
         httpSession.setAttribute("noOfPages", nOfPages);
         httpSession.setAttribute("currentPage", currentPage);
         httpSession.setAttribute("recordsPerPage", recordsPerPage);
-        return new ResponseContext(JspPath.PARKING_PAGINATION_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.PARKING_PAGINATION_PAGE.getPath(), ResponseType.REDIRECT);
 
     }
 }

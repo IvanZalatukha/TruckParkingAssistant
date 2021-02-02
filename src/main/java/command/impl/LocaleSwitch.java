@@ -18,7 +18,7 @@ public class LocaleSwitch implements Command {
 
         if (session.getAttribute("locale") == null || session.getAttribute("locale").equals("en_US")) {
             session.setAttribute("locale", "ru_Ru");
-            return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.FORWARD);
+            return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.REDIRECT);
         }
         session.setAttribute("locale", "en_US");
         System.out.println();
@@ -27,6 +27,6 @@ public class LocaleSwitch implements Command {
 //        session.setAttribute("locale", "ru_RU");
 
 
-        return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

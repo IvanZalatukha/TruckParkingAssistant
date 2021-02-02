@@ -40,6 +40,6 @@ public class GoToMapPage implements Command {
         httpSession.setAttribute("allParkings", allParkings);
 
 
-        return new ResponseContext(JspPath.MAP_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.MAP_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

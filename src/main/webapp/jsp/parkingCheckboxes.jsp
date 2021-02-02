@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/parkingCheckboxes4.css">
 <body>
 <div id="conteiner">
-    <form action="controller" method="post">
+    <form action="<c:url value="/jsp/controller"/>" method="post">
         <input type="text" id="inputLat" placeholder="Latitude" name="latitude">
         <input type="text" id="inputLong" placeholder="Longitude" name ="longitude">
         <input type="text" id="totalSpots" placeholder="Spots" name ="spots">

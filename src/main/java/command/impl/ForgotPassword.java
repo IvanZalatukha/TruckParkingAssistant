@@ -28,7 +28,7 @@ public class ForgotPassword implements Command {
             } catch (Exception e) {
                 System.out.println(3);
                 httpSession.setAttribute("InvalidInput", true);
-                return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.FORWARD);
+                return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.REDIRECT);
             }
             try {
                 System.out.println(4);
@@ -39,17 +39,17 @@ public class ForgotPassword implements Command {
                     sendEmail.sendEmailToUSer(userFromDB);
                     System.out.println(6);
                     httpSession.setAttribute("validInput", true);
-                    return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.FORWARD);
+                    return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.REDIRECT);
                 }
             } catch (Exception e) {
                 System.out.println(5);
                 e.printStackTrace();
                 httpSession.setAttribute("InvalidInput", true);
-                return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.FORWARD);
+                return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.REDIRECT);
             }
         }
         System.out.println(6);
         httpSession.setAttribute("wrongInput", true);
-        return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.REDIRECT);
     }
 }

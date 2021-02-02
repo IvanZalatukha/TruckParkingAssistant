@@ -22,8 +22,8 @@
         <h1><fmt:message key="h1.reliability"/></h1>
         <h2><fmt:message key="h2.findOut"/></h2>
     </div>
-    <a class="b-ghost" href="<c:url value="/controller?command=goToAdiminPage"/>"><fmt:message key="button.connect"/></a>
-    <a class="b-ghost" href="<c:url value="/controller?command=goToMapPage"/>"><fmt:message key="button.goToMap"/></a>
+    <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToAdiminPage"/>"><fmt:message key="button.connect"/></a>
+    <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToMapPage"/>"><fmt:message key="button.goToMap"/></a>
 </div>
 
 </body>

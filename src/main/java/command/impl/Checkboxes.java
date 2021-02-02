@@ -27,17 +27,17 @@ public class Checkboxes implements Command {
 
         if (longitude.isEmpty() || latitude.isEmpty() || spots.isEmpty() || name.isEmpty()) {
             httpSession.setAttribute("wrongInput", true);
-            return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.FORWARD);
+            return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
         }
         CoordinateValidate coordinateValidate = new CoordinateValidate();
         if (!coordinateValidate.validate(longitude) || !coordinateValidate.validate(latitude)) {
             httpSession.setAttribute("wrongCoordinate", true);
-            return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.FORWARD);
+            return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
         }
         SpotsValidate spotsValidate = new SpotsValidate();
         if (!spotsValidate.validate(spots)) {
             httpSession.setAttribute("wrongSpots", true);
-            return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.FORWARD);
+            return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
         }
 
         Parking newParking = new Parking();
@@ -55,7 +55,7 @@ public class Checkboxes implements Command {
         ImplParkingsServicesCRUD.getInstance().create(newService);
 
 
-        return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
     }
     public ServicesProvidedByParking setService(HttpServletRequest request, ServicesProvidedByParking newService) {
 

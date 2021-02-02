@@ -16,10 +16,10 @@
 <div class="fadeInDown">
     <div id="formContent">
         <h2 class="inactive underlineHover"><a class="underlineHover"
-                                               href="<c:url value="/controller?command=goSignInPage"/>"><fmt:message key="link.signIn"/></a></h2>
+                                               href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message key="link.signIn"/></a></h2>
         <h2 class="active"><fmt:message key="link.registration"/></h2>
 
-        <form action="controller" method="post">
+        <form action="<c:url value="/jsp/controller"/>" method="post">
 
             <input type="text" class="fadeIn third" placeholder="<fmt:message key="input.firstName"/>" name="firstName">
             <input type="text" class="fadeIn third" placeholder="<fmt:message key="input.lastName"/>" name="lastName">

@@ -12,6 +12,6 @@ import javax.servlet.http.HttpSession;
 public class ConnectWithUsPage implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
-        return new ResponseContext(JspPath.CONNECT_WITH_US_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.CONNECT_WITH_US_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

@@ -38,12 +38,13 @@ public class LoginUser implements Command {
                 httpSession.setAttribute("allServices", allServices);
                 httpSession.setAttribute("allParkings", allParkings);
                 httpSession.setAttribute("isUser", true);
+                httpSession.setAttribute("user", currentUser);
 
-                return new ResponseContext(JspPath.MAP_PAGE.getPath(), ResponseType.FORWARD);
+                return new ResponseContext(JspPath.MAP_PAGE.getPath(), ResponseType.REDIRECT);
             }
         }
         HttpSession httpSession = request.getSession();
         httpSession.setAttribute("wrongInput", true);
-        return new ResponseContext(JspPath.SIGN_IN_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.SIGN_IN_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

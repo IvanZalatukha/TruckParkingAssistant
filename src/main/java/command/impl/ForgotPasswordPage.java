@@ -12,6 +12,6 @@ import javax.servlet.http.HttpSession;
 public class ForgotPasswordPage implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
-        return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.REDIRECT);
     }
 }

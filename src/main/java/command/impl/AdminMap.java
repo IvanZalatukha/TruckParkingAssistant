@@ -81,6 +81,6 @@ public class AdminMap implements Command {
         httpSession.setAttribute("noOfPages", nOfPages);
         httpSession.setAttribute("currentPage", currentPage);
         httpSession.setAttribute("recordsPerPage", recordsPerPage);
-        return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

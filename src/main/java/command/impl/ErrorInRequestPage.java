@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ErrorInRequestPage implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
-        return new ResponseContext(JspPath.ERROR_PAGE.getPath(), ResponseType.FORWARD);
+        return new ResponseContext(JspPath.ERROR_PAGE.getPath(), ResponseType.REDIRECT);
 
     }
 }
