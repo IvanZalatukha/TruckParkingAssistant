@@ -234,26 +234,24 @@
             if(parkings[i].services.wifi === true) {
                 img.push('<img src="../PicturesOfParkingServices/wifi2.png" alt="wifi">')
             }
+////_________________________________________________________________________________________
+            var cord = marker.getPosition().toString()
+            var copyButton ='<button style="padding: 0px; border: none " onclick="copy()"><img src="../PicturesOfParkingServices/copy.png"></button>'
 
-            var cord = marker.getPosition()
-            var copyButton = document.createElement("button");
-            copyButton.addEventListener("click",copyFunction)
-            function copyFunction() {
-                cord.select();
-                document.execCommand("copy");
-            }
             const contentString =
 
                 '<div id="infoWindowContainer">' +
                 '<div id ="formName">' + parkings[i].parkingName.big().bold() + " " + parkings[i].spotsCurrently.big().bold() + "/" +
                 parkings[i].spotsTotal.big().bold() + '</div>' +
-                '<div id ="formCoordinate">' + cord + '<button type="submit" onclick="cord.select().execCommand(copy)"</button>' + '</div>' +
+                '<div id ="formCoordinate">' +cord + copyButton  + '</div>' +
                 '<div id="formMidl">' + img.toString() + '</div>'
             '</div>'
 
             const infowindow = new google.maps.InfoWindow({
                 content: contentString
             });
+
+////_________________________________________________________________________________________
 
 
 
@@ -281,6 +279,48 @@
 
 
     }
+    function copyFunction() {
+        /* Select the text field */
+        console.log("hello from my button")
+        var copyText = document.getElementById("formCoordinate")
+        var r = document.createRange();
+        r.selectNode(copyText);
+        document.getSelection().addRange();
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+    }
+
+    function copyToClipboard() {
+
+        // Create a "hidden" input
+        var aux = document.createElement("input");
+
+        // Assign it the value of the specified element
+        aux.setAttribute("value", document.getElementById("formCoordinate").innerHTML);
+
+        // Append it to the body
+        document.body.appendChild(aux);
+
+        // Highlight its content
+        aux.select();
+
+        // Copy the highlighted text
+        document.execCommand("SelectAll");
+
+        // Remove it from the body
+        document.body.removeChild(aux);
+
+    }
+    function copy(){
+        var aux = document.createElement("div");
+        aux.setAttribute("contentEditable", true);
+        aux.innerHTML = document.getElementById("formCoordinate").innerHTML;
+        aux.setAttribute("onfocus", "document.execCommand('selectAll',false,null)");
+        document.body.appendChild(aux);
+        aux.focus();
+        document.execCommand("copy");
+        document.body.removeChild(aux);
+    }
 
 </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -303,6 +343,7 @@
 
 <div id="map">
 </div>
+
 
 <script defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkjeJ2RVdg225f2paPwjcgVOusnmH2-TQ&callback=initMap&libraries=places&v=weekly">
