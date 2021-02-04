@@ -68,8 +68,8 @@ public class ImplParkingCRUD implements CRUDRepository {
                 parking = getParkingFromRS(resultStatement);
                 list.add(parking);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return list;

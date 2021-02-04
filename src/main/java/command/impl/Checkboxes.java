@@ -25,6 +25,18 @@ public class Checkboxes implements Command {
         String spots = request.getParameter("spots");
         HttpSession httpSession = request.getSession();
 
+        if (httpSession.getAttribute("updateService") != null) {
+
+            ServicesProvidedByParking newService = new ServicesProvidedByParking();
+            newService = setService(request);
+            int numberOfParking = (int)httpSession.getAttribute("numberOfParking");
+
+            ImplParkingsServicesCRUD.getInstance().update(numberOfParking, newService);
+
+            return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
+        }
+
+
         if (longitude.isEmpty() || latitude.isEmpty() || spots.isEmpty() || name.isEmpty()) {
             httpSession.setAttribute("wrongInput", true);
             return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
@@ -45,10 +57,10 @@ public class Checkboxes implements Command {
         newParking.setSpotsTotal(Integer.parseInt(spots));
         newParking.setCoordinateLatitude(Double.parseDouble(latitude));
         newParking.setCoordinateLongitude(Double.parseDouble(longitude));
-        newParking.setId(ImplParkingCRUD.getInstance().numberOfParkings() + 1);
+        newParking.setId(ImplParkingCRUD.getInstance().findAll().size() + 1);
 
         ServicesProvidedByParking newService = new ServicesProvidedByParking();
-        newService = setService(request, newService);
+        newService = setService(request);
         newService.setId(newParking.getId());
 
         ImplParkingCRUD.getInstance().create(newParking);
@@ -57,8 +69,9 @@ public class Checkboxes implements Command {
 
         return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
     }
-    public ServicesProvidedByParking setService(HttpServletRequest request, ServicesProvidedByParking newService) {
 
+    public ServicesProvidedByParking setService(HttpServletRequest request) {
+        ServicesProvidedByParking newService = new ServicesProvidedByParking();
         if (request.getParameter("electricity") != null) {
             newService.setElectricity(true);
         }

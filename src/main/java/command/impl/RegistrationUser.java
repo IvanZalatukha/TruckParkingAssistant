@@ -78,7 +78,7 @@ public class RegistrationUser implements Command {
         }
 
         User user = new User(login, password, firstName, lastName, email, Role.USER);
-        user.setId(ImplUserCRUD.getInstance().numberOfUsers() + 1);
+        user.setId(ImplUserCRUD.getInstance().findAll().size() + 1);
         user.setPhoneNumber(Long.parseLong(phoneNumber));
         ImplUserCRUD.getInstance().create(user);
         return new ResponseContext(JspPath.SIGN_IN_PAGE.getPath(), ResponseType.REDIRECT);

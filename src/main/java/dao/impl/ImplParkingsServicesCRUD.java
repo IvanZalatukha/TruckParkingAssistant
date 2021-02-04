@@ -18,10 +18,8 @@ public class ImplParkingsServicesCRUD implements CRUDRepository {
             "shower, guarded_parking, lighting, electricity, water, gas_station, wifi, lodging, truck_service," +
             "truck_wash, store, food ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String DELETE = "DELETE FROM services WHERE id=?";
-    private static final String UPDATE = "UPDATE services SET fence=?, security_cameras=?, wc=?," +
-            "shower=?, guarded_parking=?, lighting=?, electricity=?, water=?, gas_station=?, wifi=?," +
-            "lodging=?, truck_service=?, truck_wash=?, store=?, food=?,  WHERE id=?";
-    private static final String FIND_BY_LOGIN = "SELECT * FROM services where LOGIN=?";
+    private static final String UPDATE = "UPDATE services SET fence=?, security_cameras=?, wc=?, shower=?, guarded_parking=?, " +
+            "lighting=?, electricity=?, water=?, gas_station=?, wifi=?, lodging=?, truck_service=?, truck_wash=?, store=?, food=? WHERE id=?";
     private static final String AMOUNT_ID = "SELECT COUNT(id) FROM services";
     private static Connection connection = null;
 
@@ -164,7 +162,6 @@ public class ImplParkingsServicesCRUD implements CRUDRepository {
         ServicesProvidedByParking servicesProvidedByParking = (ServicesProvidedByParking) obj;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE);
-
             preparedStatement.setBoolean(1, servicesProvidedByParking.getFence());
             preparedStatement.setBoolean(2, servicesProvidedByParking.getSecurityCameras());
             preparedStatement.setBoolean(3, servicesProvidedByParking.getWc());
@@ -176,9 +173,11 @@ public class ImplParkingsServicesCRUD implements CRUDRepository {
             preparedStatement.setBoolean(9, servicesProvidedByParking.getGasStation());
             preparedStatement.setBoolean(10, servicesProvidedByParking.getWifi());
             preparedStatement.setBoolean(11, servicesProvidedByParking.getLodging());
-            preparedStatement.setBoolean(12, servicesProvidedByParking.getTruckWash());
-            preparedStatement.setBoolean(13, servicesProvidedByParking.getStore());
-            preparedStatement.setBoolean(14, servicesProvidedByParking.getFood());
+            preparedStatement.setBoolean(12, servicesProvidedByParking.getTruckService());
+            preparedStatement.setBoolean(13, servicesProvidedByParking.getTruckWash());
+            preparedStatement.setBoolean(14, servicesProvidedByParking.getStore());
+            preparedStatement.setBoolean(15, servicesProvidedByParking.getFood());
+            preparedStatement.setInt(16, id);
             int i = preparedStatement.executeUpdate();
             if (i == 1) {
                 return true;
