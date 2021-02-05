@@ -14,15 +14,11 @@ public class LocaleSwitch implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-
-
         if (session.getAttribute("locale") == null || session.getAttribute("locale").equals("en_US")) {
             session.setAttribute("locale", "ru_Ru");
             return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.REDIRECT);
         }
         session.setAttribute("locale", "en_US");
-        System.out.println();
-
         return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

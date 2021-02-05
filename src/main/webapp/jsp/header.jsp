@@ -20,32 +20,34 @@
         <li><a href="<c:url value="/jsp/controller?command=connectWithUs"/>"><fmt:message key="link.contact"/></a></li>
         <c:if test="${isUser}">
             <c:remove var="isUserWithoutLogin" scope="application"/>
-            <li><a href="<c:url value="/jsp/controller?command=goSignOutPage"/>"><fmt:message key="link.signOut"/></a></li>
+            <li><a href="<c:url value="/jsp/controller?command=goSignOutPage"/>"><fmt:message key="link.signOut"/></a>
+            </li>
         </c:if>
         <c:if test="${isAdmin}">
             <c:remove var="isUserWithoutLogin" scope="application"/>
-            <li><a href="<c:url value="/jsp/controller?command=goSignOutPage"/>"><fmt:message key="link.signOut"/></a></li>
+            <li><a href="<c:url value="/jsp/controller?command=goSignOutPage"/>"><fmt:message key="link.signOut"/></a>
+            </li>
         </c:if>
         <c:if test="${isUserWithoutLogin}">
-            <li><a href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message key="link.signIn"/></a></li>
+            <li><a href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message key="link.signIn"/></a>
+            </li>
         </c:if>
 
         <li><a>
             <div class="containerForLocal">
                 <div class="switch">
                     <form action="<c:url value="/jsp/controller"/>" method="post" id="forLanguageForm">
-                        <input type="hidden" name="flag" value="ready">
-                        <input type="radio" class="switch-input" onclick="this.form.submit();" name="command"
-                               value="switchLocale" id="en" checked>
-
-                        <label for="en" class="switch-label switch-label-off">EN</label>
                         <input type="radio" class="switch-input" onclick="this.form.submit();" name="command"
                                value="switchLocale" id="ru"
-                        <c:if test="${locale eq 'ru_RU'}">
+                        <c:if test="${locale eq 'en_US'}">
                                checked
                         </c:if>>
-                        <label for="ru" class="switch-label switch-label-on">RU</label>
+                        <label for="ru" class="switch-label switch-label-off">RU</label>
+                        <input type="radio" class="switch-input" onclick="this.form.submit();" name="command"
+                               value="switchLocale" id="en">
+                        <label for="en" class="switch-label switch-label-on">EN</label>
                         <span class="switch-selection"></span>
+
                     </form>
                 </div>
             </div>
