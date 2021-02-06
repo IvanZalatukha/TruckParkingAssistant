@@ -1,6 +1,6 @@
 package service;
 
-import dao.impl.ImplParkingCRUD;
+import by.zalatukha.tpa.dao.impl.ImplParkingCRUD;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
