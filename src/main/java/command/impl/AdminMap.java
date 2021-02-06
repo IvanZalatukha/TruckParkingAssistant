@@ -127,6 +127,8 @@ public class AdminMap implements Command {
             if (updateService.getFood()) {
                 httpSession.setAttribute("food", true);
             }
+
+
             httpSession.setAttribute("numberOfParking", i);
             httpSession.setAttribute("updateService", null);
             httpSession.setAttribute("updateButton", true);

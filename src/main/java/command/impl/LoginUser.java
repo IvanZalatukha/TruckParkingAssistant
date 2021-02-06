@@ -23,7 +23,7 @@ public class LoginUser implements Command {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         HttpSession httpSession = request.getSession();
-        if (!login.isEmpty() && !password.isEmpty()){
+        if (!login.isEmpty() && !password.isEmpty()) {
             User currentUser = new User();
             currentUser.setLogin(login);
             currentUser.setPassword(password);
@@ -36,7 +36,7 @@ public class LoginUser implements Command {
                 }
                 if (currentUser.getLogin().equals("admin")) {
                     httpSession.setAttribute("isAdmin", true);
-                    return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
+                    return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.REDIRECT);
                 }
 
 

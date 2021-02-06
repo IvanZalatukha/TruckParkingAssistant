@@ -4,7 +4,7 @@
 <head>
     <title>Title</title>
 </head>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/adminPage2.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/adminPage.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/infoWindowOnTheMap.css">
 <jsp:include page="header.jsp"/>

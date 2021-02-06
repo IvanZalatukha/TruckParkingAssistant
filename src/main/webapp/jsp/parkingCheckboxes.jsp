@@ -5,7 +5,7 @@
 <head>
     <title>Title</title>
 </head>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/parkingCheckboxes4.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/parkingCheckboxes.css">
 <body>
 <div id="conteiner">
     <form action="<c:url value="/jsp/controller"/>" method="post">

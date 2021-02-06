@@ -26,13 +26,20 @@ public class Checkboxes implements Command {
         HttpSession httpSession = request.getSession();
 
         if (httpSession.getAttribute("updateService") != null) {
-
-            ServicesProvidedByParking newService = new ServicesProvidedByParking();
-            newService = setService(request);
             int numberOfParking = (int)httpSession.getAttribute("numberOfParking");
 
+            if (!longitude.isEmpty() && !latitude.isEmpty() && !spots.isEmpty() && !name.isEmpty()) {
+                Parking newParking = new Parking();
+                newParking.setName(name);
+                newParking.setSpotsTotal(Integer.parseInt(spots));
+                newParking.setCoordinateLatitude(Double.parseDouble(latitude));
+                newParking.setCoordinateLongitude(Double.parseDouble(longitude));
+                newParking.setId(ImplParkingCRUD.getInstance().findAll().size() + 1);
+                ImplParkingCRUD.getInstance().update(numberOfParking, newParking);
+            }
+            ServicesProvidedByParking newService;
+            newService = setService(request);
             ImplParkingsServicesCRUD.getInstance().update(numberOfParking, newService);
-
             return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
         }
 

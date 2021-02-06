@@ -9,7 +9,7 @@
 <head>
     <title>Title</title>
 </head>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/signInPage.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/forRegistration.css">
 <jsp:include page="header.jsp"/>
 <body>
 
