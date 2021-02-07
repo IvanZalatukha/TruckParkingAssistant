@@ -19,7 +19,7 @@
         <div id="formContent">
             <h2 class="active"><fmt:message key="title.canWrite"/></h2>
 
-            <form action="/jsp/controller" method="post">
+            <form action="<c:url value="/jsp/controller"/>" method="post">
                 <input type="text" placeholder="<fmt:message key="title.name"/>" name="name">
                 <input type="text" placeholder="<fmt:message key="title.email"/>" name="email">
                 <input type="text" placeholder="<fmt:message key="title.topic"/>" name="topic">
@@ -42,6 +42,10 @@
                 </c:if>
 
             </div>
+        </div>
+        <div id="wrapperForSocialMedia">
+            <h2><fmt:message key="text.ourAddress"/></h2>
+            <img src="../PicturesOfParkingServices/socialNetworks.png">
         </div>
     </div>
 

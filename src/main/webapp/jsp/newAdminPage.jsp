@@ -12,9 +12,8 @@
 <div id="bigContainer">
     <jsp:include page="parkingCheckboxes.jsp"/>
     <div id="containerForPagination">
-        <jsp:include page="parkingPagination.jsp">
-            <jsp:param name="currentPage" value="1"/>
-        </jsp:include>
+        <jsp:include page="parkingPagination.jsp"/>
+
     </div>
 
 <div id="containerForMap">

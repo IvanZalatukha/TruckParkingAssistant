@@ -41,7 +41,7 @@ public class ForgotPassword implements Command {
             } catch (Exception e) {
                 e.printStackTrace();
                 httpSession.setAttribute("InvalidInput", true);
-                LoggerUtil.getInstance().error("Incorrect login or email");
+                LoggerUtil.getInstance().error("Forgot Password. Incorrect login or email");
                 return new ResponseContext(JspPath.FORGOT_PASSWORD.getPath(), ResponseType.REDIRECT);
             }
         }

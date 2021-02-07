@@ -44,6 +44,12 @@ h2 {
     height: 650px;
     float: left;
 }
+#wrapperForSocialMedia {
+    width: 350px;
+    height: 300px;
+    margin-left: 200px;
+    margin-top: 50px;
+}
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;

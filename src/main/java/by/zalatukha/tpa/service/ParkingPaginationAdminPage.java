@@ -22,17 +22,14 @@ public class ParkingPaginationAdminPage {
         }
 
         ParkingService parkingService = new ParkingService();
-
         List<Parking> parkings = parkingService.findAmountOfParkings(currentPage, recordsPerPage);
 
         httpSession.setAttribute("parkings", parkings);
 
         int rows = parkingService.getNumberOfRows();
-
         int nOfPages = rows / recordsPerPage;
 
         if (nOfPages % recordsPerPage > 0) {
-
             nOfPages++;
         }
         httpSession.setAttribute("currentPage", currentPage);
