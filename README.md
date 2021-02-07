@@ -26,3 +26,9 @@ and update existing parking lots using a graphical interface.
 2) Connect and configure Apache Tomcat server.
 3) Use jdk version 11 or higher to compile files.
 ### Demo:
+###### Main Page
+![Main](https://user-images.githubusercontent.com/64087276/107155018-50590200-6976-11eb-89f7-c0010751f0aa.png)
+###### Map
+![Map](https://user-images.githubusercontent.com/64087276/107155069-a2018c80-6976-11eb-8376-c4a4131db82d.png)
+###### Admin Page
+![Admin](https://user-images.githubusercontent.com/64087276/107155092-c0678800-6976-11eb-9b4c-2edfd41654ce.png)
