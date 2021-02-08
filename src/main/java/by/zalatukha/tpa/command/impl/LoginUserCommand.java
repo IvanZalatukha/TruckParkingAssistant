@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class LoginUser implements Command {
+public class LoginUserCommand implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request) {
         String login = request.getParameter("login");

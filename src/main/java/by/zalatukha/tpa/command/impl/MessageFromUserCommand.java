@@ -12,6 +12,9 @@ import by.zalatukha.tpa.validation.EmailValidation;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * This class is a command for receiving and saving messages from the user to the database
+ */
 public class MessageFromUserCommand implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request) {

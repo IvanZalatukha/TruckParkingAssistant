@@ -12,7 +12,7 @@ import by.zalatukha.tpa.util.LoggerUtil;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class RegistrationUser implements Command {
+public class RegistrationUserCommand implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request) {
 

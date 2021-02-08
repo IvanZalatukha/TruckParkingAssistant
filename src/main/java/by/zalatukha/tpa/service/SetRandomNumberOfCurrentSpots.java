@@ -5,6 +5,9 @@ import by.zalatukha.tpa.entity.Parking;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * The class is designed to simulate the existence of trucks in the parking places
+ */
 public class SetRandomNumberOfCurrentSpots {
 
     public static List<Parking> setCurrentSpots(List<Parking> list) {

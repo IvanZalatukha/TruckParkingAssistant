@@ -12,7 +12,7 @@ import by.zalatukha.tpa.util.LoggerUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class ForgotPassword implements Command {
+public class ForgotPasswordCommand implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request) {
         String login = request.getParameter("login");

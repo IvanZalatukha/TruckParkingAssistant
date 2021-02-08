@@ -8,16 +8,14 @@ import by.zalatukha.tpa.command.ResponseType;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
-public class LocaleSwitch implements Command {
+public class LogoutUserCommand implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        if (session.getAttribute("locale") == null || session.getAttribute("locale").equals("en_US")) {
-            session.setAttribute("locale", "ru_Ru");
-            return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.REDIRECT);
-        }
-        session.setAttribute("locale", "en_US");
+        HttpSession httpSession = request.getSession();
+        request.getServletContext().setAttribute("isUserWithoutLogin", true);
+        httpSession.removeAttribute("isUser");
+        httpSession.removeAttribute("user");
+        httpSession.removeAttribute("isAdmin");
         return new ResponseContext(JspPath.MAIN_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

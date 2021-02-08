@@ -5,27 +5,32 @@ import by.zalatukha.tpa.command.JspPath;
 import by.zalatukha.tpa.command.ResponseContext;
 import by.zalatukha.tpa.command.ResponseType;
 import by.zalatukha.tpa.entity.Parking;
-import by.zalatukha.tpa.service.GetAllParkingsFromDB;
 import by.zalatukha.tpa.entity.ServicesProvidedByParking;
+import by.zalatukha.tpa.service.GetAllParkingsFromDB;
+import by.zalatukha.tpa.service.ParkingPaginationAdminPage;
+import by.zalatukha.tpa.service.ShowUpdateDeleteAdminPage;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class GoToMapPage implements Command {
+/**
+ * This class is a command is intended to display UI admin map
+ */
+public class AdminMapCommand implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request) {
-        HttpSession httpSession = request.getSession();
 
         List<Parking> allParkings = GetAllParkingsFromDB.getAllParkingsFromDB();
         List<ServicesProvidedByParking> allServices = GetAllParkingsFromDB.getAllServicesFromDB();
 
-        if(httpSession.getAttribute("showParking") != null){
-            httpSession.removeAttribute("showParking");
-        }
+        HttpSession httpSession = request.getSession();
         httpSession.setAttribute("allServices", allServices);
         httpSession.setAttribute("allParkings", allParkings);
 
-        return new ResponseContext(JspPath.MAP_PAGE.getPath(), ResponseType.REDIRECT);
+        ParkingPaginationAdminPage.pagination(request);
+        ShowUpdateDeleteAdminPage.showUpdateDelete(request, allParkings, allServices);
+
+        return new ResponseContext(JspPath.ADMIN_PAGE.getPath(), ResponseType.REDIRECT);
     }
 }

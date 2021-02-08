@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class ParkingPagination implements Command {
+/**
+ * This class is a command for displaying parking lots in page mode
+ */
+
+public class ParkingPaginationCommand implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();

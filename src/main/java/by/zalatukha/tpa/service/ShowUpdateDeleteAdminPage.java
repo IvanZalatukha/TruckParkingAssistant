@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ * Designed to process parameters coming from the admin page
+ */
 public class ShowUpdateDeleteAdminPage {
     public static void showUpdateDelete(HttpServletRequest request, List<Parking> allParkings, List<ServicesProvidedByParking> allServices) {
         HttpSession httpSession = request.getSession();
@@ -77,7 +80,6 @@ public class ShowUpdateDeleteAdminPage {
             if (updateService.getFood()) {
                 httpSession.setAttribute("food", true);
             }
-
 
             httpSession.setAttribute("numberOfParking", i);
             httpSession.setAttribute("updateService", null);

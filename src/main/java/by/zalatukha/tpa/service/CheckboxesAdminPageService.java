@@ -4,6 +4,9 @@ import by.zalatukha.tpa.entity.ServicesProvidedByParking;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Designed to process parameters coming from the admin page
+ */
 public class CheckboxesAdminPageService {
     public static ServicesProvidedByParking setService(HttpServletRequest request) {
         ServicesProvidedByParking newService = new ServicesProvidedByParking();

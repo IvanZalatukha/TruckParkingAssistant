@@ -16,7 +16,11 @@ import by.zalatukha.tpa.validation.SpotsValidate;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class Checkboxes implements Command {
+/**
+ * This class is a command for processing and displaying images
+ * representing various services provided by parking place
+ */
+public class CheckboxesCommand implements Command {
     @Override
     public ResponseContext execute(HttpServletRequest request) {
 

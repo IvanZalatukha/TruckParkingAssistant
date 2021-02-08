@@ -5,7 +5,9 @@ import by.zalatukha.tpa.validation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+/**
+ * Designed to handle invalid input parameters coming from the registration page
+ */
 public class RegistrationUserService {
     public static boolean checkForCorrectInput(String firstName, String lastName, String email, String phoneNumber,
                                                String login, String password, String confirmPassword, HttpServletRequest request) {
