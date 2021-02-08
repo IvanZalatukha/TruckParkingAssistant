@@ -35,6 +35,5 @@ public class RegistrationUser implements Command {
 
         LoggerUtil.getInstance().info("User "+ firstName + " " + lastName + " registered in the system");
         return new ResponseContext(JspPath.SIGN_IN_PAGE.getPath(), ResponseType.REDIRECT);
-
     }
 }

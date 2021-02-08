@@ -13,7 +13,6 @@
 
 <body>
 
-
 <main class="m-3" style="background-color: #ffffff">
 
     <div class="row col-md-6">
@@ -65,7 +64,7 @@
             <c:if test="${currentPage != 1}">
                 <li class="page-item">
                     <form action="<c:url value="/jsp/controller"/>" method="post">
-                        <input type="hidden" name="command" value="goToAdminPage">
+                        <input type="hidden" name="command" value="adminMap">
                         <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
                         <input type="hidden" name="currentPage" value="${currentPage-1}">
                         <input type="submit" class="page-link" name="submit" value="Previous">
@@ -84,7 +83,7 @@
                     <c:otherwise>
                         <li class="page-item">
                             <form action="<c:url value="/jsp/controller"/>" method="post">
-                                <input type="hidden" name="command" value="goToAdminPage">
+                                <input type="hidden" name="command" value="adminMap">
                                 <input type="hidden" name="currentPage" value="${i}">
                                 <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
                                 <input type="submit" class="page-link" name="submit" value="${i}">
@@ -97,7 +96,7 @@
             <c:if test="${currentPage lt noOfPages}">
                 <li class="page-item">
                     <form action="controller" method="post">
-                        <input type="hidden" name="command" value="goToAdminPage">
+                        <input type="hidden" name="command" value="adminMap">
                         <input type="hidden" name="recordsPerPage" value="${recordsPerPage}">
                         <input type="hidden" name="currentPage" value="${currentPage+1}">
                         <input type="submit" class="page-link" name="submit" value="Next">
