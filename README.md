@@ -12,7 +12,7 @@
 - Apache Tomcat
 
 
-### App description:
+### About:
 This web application is a diploma project for the course Java web development EPAM Minsk.
 The project is a web application based on Google Maps for finding parking places for trucks.
 The user has the ability to search on the map by address or coordinates. Information about
@@ -21,7 +21,7 @@ copy parking coordinates after clicking copy button. It was done for the conveni
 who control the movement of trucks in internal programs. The administrator has an ability to add, remove
 and update existing parking places using a graphical interface.
 
-### Configurations:
+### Getting started:
 1) Connect MySQL server and configure database.properties file.
 2) Connect and configure Apache Tomcat server.
 3) Connect your google maps API key
