@@ -11,11 +11,10 @@ import by.zalatukha.tpa.service.RegistrationUserService;
 import by.zalatukha.tpa.util.LoggerUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class RegistrationUser implements Command {
     @Override
-    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request) {
 
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");

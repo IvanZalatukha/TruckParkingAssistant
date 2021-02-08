@@ -24,7 +24,6 @@ public class CommandProvider {
         commandMatching.put(CommandValue.SIGN_OUT_PAGE.getValue(), new LogoutUser());
         commandMatching.put(CommandValue.LOGIN_USER.getValue(), new LoginUser());
         commandMatching.put(CommandValue.ADMIN_MAP.getValue(), new AdminMap());
-        commandMatching.put(CommandValue.ADMIN_PAGE.getValue(), new AdminMap());
         commandMatching.put(CommandValue.PARKING_PAGINATION_PAGE.getValue(), new ParkingPagination());
         commandMatching.put(CommandValue.GO_TO_MAP_PAGE.getValue(), new GoToMapPage());
         commandMatching.put(CommandValue.GO_TO_MAIN_PAGE.getValue(), new MainPage());

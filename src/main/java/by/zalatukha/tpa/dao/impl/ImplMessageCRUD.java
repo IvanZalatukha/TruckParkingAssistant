@@ -76,8 +76,8 @@ public class ImplMessageCRUD implements CRUDRepository {
                 message = getMessageFromRS(resultStatement);
                 list.add(message);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
 
         return list;
@@ -91,8 +91,8 @@ public class ImplMessageCRUD implements CRUDRepository {
             while (resultStatement.next()) {
                 return resultStatement.getInt(1);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         return numberOfMessages;
     }
@@ -151,6 +151,5 @@ public class ImplMessageCRUD implements CRUDRepository {
         }
         return false;
     }
-
 
 }

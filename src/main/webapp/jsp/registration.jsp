@@ -16,7 +16,8 @@
 <div class="fadeInDown">
     <div id="formContent">
         <h2 class="inactive underlineHover"><a class="underlineHover"
-                                               href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message key="link.signIn"/></a></h2>
+                                               href="<c:url value="/jsp/controller?command=goSignInPage"/>"><fmt:message
+                key="link.signIn"/></a></h2>
         <h2 class="active"><fmt:message key="link.registration"/></h2>
 
         <form action="<c:url value="/jsp/controller"/>" method="post">
@@ -26,8 +27,10 @@
             <input type="text" class="fadeIn third" placeholder="<fmt:message key="input.email"/>" name="email">
             <input type="text" class="fadeIn third" placeholder="<fmt:message key="input.phone"/>" name="phoneNumber">
             <input type="text" class="fadeIn second" placeholder="<fmt:message key="input.login"/>" name="login">
-            <input type="password" class="fadeIn third" placeholder="<fmt:message key="input.password"/>" name="password">
-            <input type="password" class="fadeIn third" placeholder="<fmt:message key="input.confPassword"/>" name="confirmPassword">
+            <input type="password" class="fadeIn third" placeholder="<fmt:message key="input.password"/>"
+                   name="password">
+            <input type="password" class="fadeIn third" placeholder="<fmt:message key="input.confPassword"/>"
+                   name="confirmPassword">
             <input type="hidden" name="command" value="registrationUser">
             <input type="submit" class="fadeIn fourth" value="<fmt:message key="button.register"/>">
         </form>
@@ -70,8 +73,6 @@
             </c:if>
 
         </div>
-
-
     </div>
 </div>
 

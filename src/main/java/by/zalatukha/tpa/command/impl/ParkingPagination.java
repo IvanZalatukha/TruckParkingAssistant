@@ -8,13 +8,12 @@ import by.zalatukha.tpa.command.JspPath;
 import by.zalatukha.tpa.service.ParkingService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class ParkingPagination implements Command {
     @Override
-    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
 
         int currentPage = Integer.parseInt(request.getParameter("currentPage"));

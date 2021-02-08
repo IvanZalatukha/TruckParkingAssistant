@@ -24,7 +24,8 @@ and update existing parking places using a graphical interface.
 ### Configurations:
 1) Connect MySQL server and configure database.properties file.
 2) Connect and configure Apache Tomcat server.
-3) Use jdk version 11 or higher to compile files.
+3) Connect your google maps API key
+4) Use jdk version 11 or higher to compile files.
 ### Demo:
 ###### Main Page
 ![Main](https://user-images.githubusercontent.com/64087276/107155018-50590200-6976-11eb-89f7-c0010751f0aa.png)

@@ -31,7 +31,7 @@ public class FirstController extends HttpServlet {
             throws ServletException, IOException {
         Command command = CommandProvider.getInstance().getCommand(request);
             if(request.getParameter("command") != null) {
-                ResponseContext page = command.execute(request, response);
+                ResponseContext page = command.execute(request);
                 if (page.getResponseType() == ResponseType.FORWARD) {
                     RequestDispatcher dispatcher = request.getRequestDispatcher(page.getPage());
                     dispatcher.forward(request, response);

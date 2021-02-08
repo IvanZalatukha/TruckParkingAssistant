@@ -10,12 +10,11 @@ import by.zalatukha.tpa.util.LoggerUtil;
 import by.zalatukha.tpa.validation.EmailValidation;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class MessageFromUserCommand implements Command {
     @Override
-    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request) {
 
         HttpSession httpSession = request.getSession();
         String name = request.getParameter("name");

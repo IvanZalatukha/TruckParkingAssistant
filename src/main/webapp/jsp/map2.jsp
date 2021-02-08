@@ -9,31 +9,38 @@
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/infoWindowOnTheMap.css">
-<jsp:include page="header.jsp" />
+<jsp:include page="header.jsp"/>
 <script>
     var parkings = []
 </script>
 
 <c:forEach var="parking" items="${allParkings}">
     <script>
-            parkings.push(
-                {
-                    "coordinates":{lat: ${parking.getCoordinateLatitude()}, lng: ${parking.getCoordinateLongitude()}},
-                    "parkingName": "${parking.getName()}",
-                    "spotsTotal":"${parking.getSpotsTotal()}",
-                    "services": {fence: ${parking.getParkingServices().getFence()},
-                        securityCameras: ${parking.getParkingServices().getSecurityCameras()},
-                        wc: ${parking.getParkingServices().getWc()}, shower: ${parking.getParkingServices().getShower()},
-                        guard: ${parking.getParkingServices().getGuardedParking()}, light: ${parking.getParkingServices().getLighting()},
-                        electricity: ${parking.getParkingServices().getElectricity()}, water: ${parking.getParkingServices().getWater()},
-                        gasStation: ${parking.getParkingServices().getGasStation()}, wifi: ${parking.getParkingServices().getWifi()},
-                        lodging: ${parking.getParkingServices().getLodging()}, truckService: ${parking.getParkingServices().getTruckService()},
-                        truckWash: ${parking.getParkingServices().getTruckWash()}, store: ${parking.getParkingServices().getStore()},
-                        food: ${parking.getParkingServices().getFood()}},
-                    "spotsCurrently": "${parking.getSpotsCurrently()}"
-                }
-
-            )
+        parkings.push(
+            {
+                "coordinates": {lat: ${parking.getCoordinateLatitude()}, lng: ${parking.getCoordinateLongitude()}},
+                "parkingName": "${parking.getName()}",
+                "spotsTotal": "${parking.getSpotsTotal()}",
+                "services": {
+                    fence: ${parking.getParkingServices().getFence()},
+                    securityCameras: ${parking.getParkingServices().getSecurityCameras()},
+                    wc: ${parking.getParkingServices().getWc()},
+                    shower: ${parking.getParkingServices().getShower()},
+                    guard: ${parking.getParkingServices().getGuardedParking()},
+                    light: ${parking.getParkingServices().getLighting()},
+                    electricity: ${parking.getParkingServices().getElectricity()},
+                    water: ${parking.getParkingServices().getWater()},
+                    gasStation: ${parking.getParkingServices().getGasStation()},
+                    wifi: ${parking.getParkingServices().getWifi()},
+                    lodging: ${parking.getParkingServices().getLodging()},
+                    truckService: ${parking.getParkingServices().getTruckService()},
+                    truckWash: ${parking.getParkingServices().getTruckWash()},
+                    store: ${parking.getParkingServices().getStore()},
+                    food: ${parking.getParkingServices().getFood()}
+                },
+                "spotsCurrently": "${parking.getSpotsCurrently()}"
+            }
+        )
     </script>
 </c:forEach>
 
@@ -42,9 +49,12 @@
         var showPark = []
         showPark.push(
             {
-                "coordinates": {lat: ${showParking.getCoordinateLatitude()}, lng: ${showParking.getCoordinateLongitude()}},
+                "coordinates": {
+                    lat: ${showParking.getCoordinateLatitude()},
+                    lng: ${showParking.getCoordinateLongitude()}
+                },
                 "parkingName": "${showParking.getName()}",
-                "spotsTotal":"${showParking.getSpotsTotal()}",
+                "spotsTotal": "${showParking.getSpotsTotal()}",
                 "spotsCurrently": "${showParking.getSpotsCurrently()}"
             }
         )
@@ -89,7 +99,6 @@
         // more details for that place.
         searchBox.addListener("places_changed", () => {
             const places = searchBox.getPlaces();
-
             if (places.length === 0) {
                 return;
             }
@@ -121,7 +130,6 @@
                         position: place.geometry.location,
                     })
                 );
-
                 if (place.geometry.viewport) {
                     // Only geocodes have viewport.
                     bounds.union(place.geometry.viewport);
@@ -171,12 +179,8 @@
             );
             infoWindow.open(map);
         }
+
         // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-        const markersArray = []
-
         for (var i = 0; i < parkings.length; i++) {
             const marker = new google.maps.Marker({
                 position: parkings[i].coordinates,
@@ -188,62 +192,62 @@
                 animation: google.maps.Animation.DROP
             });
 
-            var img =[]
-            if(parkings[i].services.electricity === true) {
-                img.push('<img src="../PicturesOfParkingServices/electricity2.png" alt="electricity">')
+            var img = []
+            if (parkings[i].services.electricity === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/electricity2.png" alt="electricity">')
             }
-            if(parkings[i].services.fence === true) {
-                img.push('<img src="../PicturesOfParkingServices/fence2.png" alt="fence">')
+            if (parkings[i].services.fence === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/fence2.png" alt="fence">')
             }
-            if(parkings[i].services.food === true) {
-                img.push('<img src="../PicturesOfParkingServices/food2.png" alt="food">')
+            if (parkings[i].services.food === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/food2.png" alt="food">')
             }
-            if(parkings[i].services.gasStation === true) {
-                img.push('<img src="../PicturesOfParkingServices/gasStation2.png" alt="gasStation">')
+            if (parkings[i].services.gasStation === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/gasStation2.png" alt="gasStation">')
             }
-            if(parkings[i].services.guard === true) {
-                img.push('<img src="../PicturesOfParkingServices/guard2.png" alt="guard">')
+            if (parkings[i].services.guard === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/guard2.png" alt="guard">')
             }
-            if(parkings[i].services.light === true) {
-                img.push('<img src="../PicturesOfParkingServices/light2.png" alt="light">')
+            if (parkings[i].services.light === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/light2.png" alt="light">')
             }
-            if(parkings[i].services.lodging === true) {
-                img.push('<img src="../PicturesOfParkingServices/lodging2.png" alt="lodging">')
+            if (parkings[i].services.lodging === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/lodging2.png" alt="lodging">')
             }
-            if(parkings[i].services.securityCameras === true) {
-                img.push('<img src="../PicturesOfParkingServices/securityCameras2.png" alt="securityCameras">')
+            if (parkings[i].services.securityCameras === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/securityCameras2.png" alt="securityCameras">')
             }
-            if(parkings[i].services.truckService === true) {
-                img.push('<img src="../PicturesOfParkingServices/service2.png" alt="truckService">')
+            if (parkings[i].services.truckService === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/service2.png" alt="truckService">')
             }
-            if(parkings[i].services.shower === true) {
-                img.push('<img src="../PicturesOfParkingServices/shower2.png" alt="shower">')
+            if (parkings[i].services.shower === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/shower2.png" alt="shower">')
             }
-            if(parkings[i].services.store === true) {
-                img.push('<img src="../PicturesOfParkingServices/store2.png" alt="store">')
+            if (parkings[i].services.store === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/store2.png" alt="store">')
             }
-            if(parkings[i].services.truckWash === true) {
-                img.push('<img src="../PicturesOfParkingServices/truckWash2.png" alt="truckWash">')
+            if (parkings[i].services.truckWash === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/truckWash2.png" alt="truckWash">')
             }
-            if(parkings[i].services.water === true) {
-                img.push('<img src="../PicturesOfParkingServices/water2.png" alt="water">')
+            if (parkings[i].services.water === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/water2.png" alt="water">')
             }
-            if(parkings[i].services.wc === true) {
-                img.push('<img src="../PicturesOfParkingServices/wc2.png" alt="wc">')
+            if (parkings[i].services.wc === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/wc2.png" alt="wc">')
             }
-            if(parkings[i].services.wifi === true) {
-                img.push('<img src="../PicturesOfParkingServices/wifi2.png" alt="wifi">')
+            if (parkings[i].services.wifi === true) {
+                img.push('<img src="../resources/PicturesOfParkingServices/wifi2.png" alt="wifi">')
             }
 ////_________________________________________________________________________________________
             var cord = marker.getPosition().toString()
-            var copyButton ='<button style="padding: 0px; border: none " onclick="copy()"><img src="../PicturesOfParkingServices/copy.png"></button>'
+            var copyButton = '<button style="padding: 0px; border: none " onclick="copyCoordinate()">' +
+                '<img src="../resources/PicturesOfParkingServices/copy.png"></button>'
 
             const contentString =
-
                 '<div id="infoWindowContainer">' +
                 '<div id ="formName">' + parkings[i].parkingName.big().bold() + " " + parkings[i].spotsCurrently.big().bold() + "/" +
                 parkings[i].spotsTotal.big().bold() + '</div>' +
-                '<div id ="formCoordinate">' +cord + copyButton  + '</div>' +
+                '<div id ="formCoordinate">' + cord + copyButton + '</div>' +
                 '<div id="formMidl">' + img.toString() + '</div>'
             '</div>'
 
@@ -252,13 +256,9 @@
             });
 
 ////_________________________________________________________________________________________
-
-
-
             marker.addListener("click", () => {
                 infowindow.open(map, marker);
             });
-            markersArray.push(marker)
         }
         var pinIcon = new google.maps.MarkerImage(
             "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FFFF00",
@@ -275,43 +275,9 @@
 
         });
         showMarker.setIcon(pinIcon);
-
-
-
-    }
-    function copyFunction() {
-        /* Select the text field */
-        console.log("hello from my button")
-        var copyText = document.getElementById("formCoordinate")
-        var r = document.createRange();
-        r.selectNode(copyText);
-        document.getSelection().addRange();
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
     }
 
-    function copyToClipboard() {
-
-        // Create a "hidden" input
-        var aux = document.createElement("input");
-
-        // Assign it the value of the specified element
-        aux.setAttribute("value", document.getElementById("formCoordinate").innerHTML);
-
-        // Append it to the body
-        document.body.appendChild(aux);
-
-        // Highlight its content
-        aux.select();
-
-        // Copy the highlighted text
-        document.execCommand("SelectAll");
-
-        // Remove it from the body
-        document.body.removeChild(aux);
-
-    }
-    function copy(){
+    function copyCoordinate() {
         var aux = document.createElement("div");
         aux.setAttribute("contentEditable", true);
         aux.innerHTML = document.getElementById("formCoordinate").innerHTML;
@@ -335,6 +301,7 @@
     html {
         background-color: #adaeb3;
     }
+
     #map {
         height: 900px;
         width: 100%;
@@ -343,7 +310,6 @@
 
 <div id="map">
 </div>
-
 
 <script defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkjeJ2RVdg225f2paPwjcgVOusnmH2-TQ&callback=initMap&libraries=places&v=weekly">

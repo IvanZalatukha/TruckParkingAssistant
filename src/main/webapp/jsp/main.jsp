@@ -21,10 +21,10 @@
         <h1><fmt:message key="h1.reliability"/></h1>
         <h2><fmt:message key="h2.findOut"/></h2>
     </div>
-    <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToAdminPage"/>"><fmt:message key="button.connect"/></a>
+    <a class="b-ghost" href="<c:url value="/jsp/controller?command=connectWithUs"/>"><fmt:message key="button.connect"/></a>
     <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToMapPage"/>"><fmt:message key="button.goToMap"/></a>
     <c:if test="${isAdmin}">
-        <a class="b-ghost" href="<c:url value="/jsp/controller?command=goToAdminPage"/>">Admin</a>
+        <a class="b-ghost" href="<c:url value="/jsp/controller?command=adminMap"/>">Admin</a>
     </c:if>
 </div>
 

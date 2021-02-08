@@ -5,7 +5,6 @@ public enum CommandValue {
     GO_TO_MAIN_PAGE("goToMainPage"),
     ERROR("error"),
     PARKING_PAGINATION_PAGE("goToPaginationPage"),
-    ADMIN_PAGE("goToAdminPage"),
     SIGN_IN_PAGE("goSignInPage"),
     SIGN_OUT_PAGE("goSignOutPage"),
     LOGIN_USER("login"),

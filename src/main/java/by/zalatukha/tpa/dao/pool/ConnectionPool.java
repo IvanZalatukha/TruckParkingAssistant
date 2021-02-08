@@ -1,6 +1,7 @@
 package by.zalatukha.tpa.dao.pool;
 
 import by.zalatukha.tpa.dao.DatabaseSettings;
+import by.zalatukha.tpa.util.LoggerUtil;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,6 +29,7 @@ public class ConnectionPool {
         try {
             Class.forName(settings.getDriver());
         } catch (ClassNotFoundException e) {
+            LoggerUtil.getInstance().error("Database driver connection failed");
             throw new RuntimeException("Database driver connection failed", e);
         }
         connectionPool.connections = new ArrayBlockingQueue<>(settings.getPoolSize());
@@ -42,16 +44,13 @@ public class ConnectionPool {
             return DriverManager.getConnection(settings.getURL(), settings.getUser(),
                     settings.getPassword());
         } catch (SQLException e) {
+            LoggerUtil.getInstance().error("Database connection failed");
             throw new RuntimeException("Database connection failed", e);
         }
     }
 
     public Connection getConnection() throws InterruptedException {
         return connections.take();
-    }
-
-    public void releaseConnection(Connection connection) {
-        connections.add(connection);
     }
 
     public void destroyPool() {
@@ -61,6 +60,7 @@ public class ConnectionPool {
             }
             instance = null;
         } catch (SQLException e) {
+            LoggerUtil.getInstance().error("Error from destroyPool method");
             e.printStackTrace();
         }
     }

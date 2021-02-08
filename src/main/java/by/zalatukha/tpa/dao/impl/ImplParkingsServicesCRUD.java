@@ -95,21 +95,6 @@ public class ImplParkingsServicesCRUD implements CRUDRepository {
         return servicesProvidedByParking;
     }
 
-    public Integer numberOfServices() {
-        Integer number = 0;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(AMOUNT_ID);
-            ResultSet resultStatement = preparedStatement.executeQuery();
-            while (resultStatement.next()) {
-                return resultStatement.getInt(1);
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return number;
-    }
-
-
     @Override
     public boolean create(Object obj) {
         ServicesProvidedByParking servicesProvidedByParking = (ServicesProvidedByParking) obj;

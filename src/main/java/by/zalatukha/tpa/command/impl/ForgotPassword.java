@@ -10,12 +10,11 @@ import by.zalatukha.tpa.service.SendEmailService;
 import by.zalatukha.tpa.util.LoggerUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class ForgotPassword implements Command {
     @Override
-    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request) {
         String login = request.getParameter("login");
         String email = request.getParameter("email");
         HttpSession httpSession = request.getSession();

@@ -45,7 +45,7 @@
         </div>
         <div id="wrapperForSocialMedia">
             <h2><fmt:message key="text.ourAddress"/></h2>
-            <img src="../PicturesOfParkingServices/socialNetworks.png">
+            <img src="../resources/PicturesOfParkingServices/socialNetworks.png">
         </div>
     </div>
 

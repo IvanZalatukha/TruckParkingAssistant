@@ -9,13 +9,12 @@ import by.zalatukha.tpa.service.GetAllParkingsFromDB;
 import by.zalatukha.tpa.entity.ServicesProvidedByParking;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class GoToMapPage implements Command {
     @Override
-    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
 
         List<Parking> allParkings = GetAllParkingsFromDB.getAllParkingsFromDB();

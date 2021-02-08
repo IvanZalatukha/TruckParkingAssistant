@@ -10,17 +10,16 @@
 <div id="conteiner">
     <form action="<c:url value="/jsp/controller"/>" method="post">
         <input type="text" id="inputLat" placeholder="Latitude" name="latitude">
-        <input type="text" id="inputLong" placeholder="Longitude" name ="longitude">
-        <input type="text" id="totalSpots" placeholder="Spots" name ="spots">
-        <input type="text" id="parkingName" placeholder="Parking Name" name ="name">
+        <input type="text" id="inputLong" placeholder="Longitude" name="longitude">
+        <input type="text" id="totalSpots" placeholder="Spots" name="spots">
+        <input type="text" id="parkingName" placeholder="Parking Name" name="name">
 
-        <%--@elvariable id="electricity" type="boolean"--%>
         <c:if test="${electricity == true}">
             <label><input id="electricity" type="checkbox" value="electricity" name="electricity" checked><span></span></label>
 
         </c:if>
         <c:if test="${electricity == null}">
-            <label><input id="electricity2" type="checkbox" value="electricity" name="electricity" ><span></span></label>
+            <label><input id="electricity2" type="checkbox" value="electricity" name="electricity"><span></span></label>
         </c:if>
         <c:if test="${fence == true}">
             <label><input id="fence" type="checkbox" value="fence" name="fence" checked><span></span></label>
@@ -33,43 +32,46 @@
             <label><input id="food" type="checkbox" value="food" name="food" checked><span></span></label>
         </c:if>
         <c:if test="${food == null}">
-            <label><input id="food2" type="checkbox" value="food" name="food" ><span></span></label>
+            <label><input id="food2" type="checkbox" value="food" name="food"><span></span></label>
         </c:if>
         <c:if test="${gasStation == true}">
-            <label><input id="gasStation" type="checkbox" value="gasStation" name="gasStation" checked><span></span></label>
+            <label><input id="gasStation" type="checkbox" value="gasStation" name="gasStation"
+                          checked><span></span></label>
         </c:if>
         <c:if test="${gasStation == null}">
-            <label><input id="gasStation2" type="checkbox" value="gasStation" name="gasStation" ><span></span></label>
+            <label><input id="gasStation2" type="checkbox" value="gasStation" name="gasStation"><span></span></label>
         </c:if>
         <c:if test="${guard == true}">
             <label><input id="guard" type="checkbox" value="guard" name="guard" checked><span></span></label>
         </c:if>
         <c:if test="${guard eq null}">
-            <label><input id="guard2" type="checkbox" value="guard" name="guard" ><span></span></label>
+            <label><input id="guard2" type="checkbox" value="guard" name="guard"><span></span></label>
         </c:if>
         <c:if test="${light == true}">
             <label><input id="light" type="checkbox" value="light" name="light" checked><span></span></label>
         </c:if>
         <c:if test="${light eq null}">
-            <label><input id="light2" type="checkbox" value="light" name="light" ><span></span></label>
+            <label><input id="light2" type="checkbox" value="light" name="light"><span></span></label>
         </c:if>
         <c:if test="${lodging == true}">
             <label><input id="lodging" type="checkbox" value="lodging" name="lodging" checked><span></span></label>
         </c:if>
         <c:if test="${lodging eq null}">
-            <label><input id="lodging2" type="checkbox" value="lodging" name="lodging" ><span></span></label>
+            <label><input id="lodging2" type="checkbox" value="lodging" name="lodging"><span></span></label>
         </c:if>
         <c:if test="${securityCameras == true}">
-            <label><input id="securityCameras" type="checkbox" value="securityCameras" name="securityCameras" checked><span></span></label>
+            <label><input id="securityCameras" type="checkbox" value="securityCameras" name="securityCameras"
+                          checked><span></span></label>
         </c:if>
         <c:if test="${securityCameras eq null}">
-            <label><input id="securityCameras2" type="checkbox" value="securityCameras" name="securityCameras" ><span></span></label>
+            <label><input id="securityCameras2" type="checkbox" value="securityCameras"
+                          name="securityCameras"><span></span></label>
         </c:if>
         <c:if test="${truckService == true}">
             <label><input id="service" type="checkbox" value="service" name="service" checked><span></span></label>
         </c:if>
         <c:if test="${truckService eq null}">
-            <label><input id="service2" type="checkbox" value="service" name="service" ><span></span></label>
+            <label><input id="service2" type="checkbox" value="service" name="service"><span></span></label>
         </c:if>
         <c:if test="${shower == true}">
             <label><input id="shower" type="checkbox" value="shower" name="shower" checked><span></span></label>
@@ -81,10 +83,11 @@
             <label><input id="store" type="checkbox" value="store" name="store" checked><span></span></label>
         </c:if>
         <c:if test="${store eq null}">
-            <label><input id="store2" type="checkbox" value="store" name="store" ><span></span></label>
+            <label><input id="store2" type="checkbox" value="store" name="store"><span></span></label>
         </c:if>
         <c:if test="${truckWash == true}">
-            <label><input id="truckWash" type="checkbox" value="truckWash" name="truckWash" checked><span></span></label>
+            <label><input id="truckWash" type="checkbox" value="truckWash" name="truckWash"
+                          checked><span></span></label>
         </c:if>
         <c:if test="${truckWash eq null}">
             <label><input id="truckWash2" type="checkbox" value="truckWash" name="truckWash"><span></span></label>
@@ -93,19 +96,19 @@
             <label><input id="water" type="checkbox" value="water" name="water" checked><span></span></label>
         </c:if>
         <c:if test="${water eq null}">
-            <label><input id="water2" type="checkbox" value="water" name="water" ><span></span></label>
+            <label><input id="water2" type="checkbox" value="water" name="water"><span></span></label>
         </c:if>
         <c:if test="${wc == true}">
             <label><input id="wc" type="checkbox" value="wc" name="wc" checked><span></span></label>
         </c:if>
         <c:if test="${wc eq null}">
-            <label><input id="wc2" type="checkbox" value="wc" name="wc" ><span></span></label>
+            <label><input id="wc2" type="checkbox" value="wc" name="wc"><span></span></label>
         </c:if>
         <c:if test="${wifi == true}">
             <label><input id="wifi" type="checkbox" value="wifi" name="wifi" checked><span></span></label>
         </c:if>
         <c:if test="${wifi eq null}">
-            <label><input id="wifi2" type="checkbox" value="wifi" name="wifi" ><span></span></label>
+            <label><input id="wifi2" type="checkbox" value="wifi" name="wifi"><span></span></label>
         </c:if>
         <c:remove var="electricity" scope="session"/>
         <c:remove var="fence" scope="session"/>

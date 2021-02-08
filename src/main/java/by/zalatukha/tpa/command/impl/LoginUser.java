@@ -5,23 +5,19 @@ import by.zalatukha.tpa.entity.User;
 import by.zalatukha.tpa.command.JspPath;
 import by.zalatukha.tpa.command.ResponseContext;
 import by.zalatukha.tpa.command.ResponseType;
-import by.zalatukha.tpa.dao.impl.ImplParkingCRUD;
-import by.zalatukha.tpa.dao.impl.ImplParkingsServicesCRUD;
 import by.zalatukha.tpa.entity.Parking;
 import by.zalatukha.tpa.entity.ServicesProvidedByParking;
 import by.zalatukha.tpa.service.GetAllParkingsFromDB;
-import by.zalatukha.tpa.service.SetRandomNumberOfCurrentSpots;
 import by.zalatukha.tpa.service.UserService;
 import by.zalatukha.tpa.util.LoggerUtil;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class LoginUser implements Command {
     @Override
-    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request) {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         HttpSession httpSession = request.getSession();

@@ -14,12 +14,11 @@ import by.zalatukha.tpa.validation.CoordinateValidate;
 import by.zalatukha.tpa.validation.SpotsValidate;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class Checkboxes implements Command {
     @Override
-    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request) {
 
         String latitude = request.getParameter("latitude");
         String longitude = request.getParameter("longitude");

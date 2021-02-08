@@ -112,11 +112,9 @@ public class ImplParkingCRUD implements CRUDRepository {
             while (resultStatement.next()) {
                 return resultStatement.getInt(1);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
-
-
         return number;
     }
 
@@ -174,6 +172,5 @@ public class ImplParkingCRUD implements CRUDRepository {
         }
         return false;
     }
-
 
 }

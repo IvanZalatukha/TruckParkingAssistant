@@ -23,7 +23,7 @@
                     How you got here is a mystery. But you can click the button below
                     to go back to the homepage.
                 </p>
-                <form action="/jsp/controller" method="post">
+                <form action="<c:url value="/jsp/controller"/>" method="post">
                     <input type="hidden" name="command" value="goToMainPage">
                     <input type="submit" name="submit" value="HOME" class="btn blue">
                 </form>

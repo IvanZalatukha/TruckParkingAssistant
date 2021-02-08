@@ -11,13 +11,12 @@ import by.zalatukha.tpa.service.ParkingPaginationAdminPage;
 import by.zalatukha.tpa.service.ShowUpdateDeleteAdminPage;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class AdminMap implements Command {
     @Override
-    public ResponseContext execute(HttpServletRequest request, HttpServletResponse response) {
+    public ResponseContext execute(HttpServletRequest request) {
 
         List<Parking> allParkings = GetAllParkingsFromDB.getAllParkingsFromDB();
         List<ServicesProvidedByParking> allServices = GetAllParkingsFromDB.getAllServicesFromDB();

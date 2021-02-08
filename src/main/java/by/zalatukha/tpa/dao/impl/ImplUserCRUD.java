@@ -106,21 +106,6 @@ public class ImplUserCRUD implements CRUDRepository {
         return user;
     }
 
-    public Integer numberOfUsers() {
-        Integer number = 0;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(AMOUNT_ID);
-            ResultSet resultStatement = preparedStatement.executeQuery();
-            while (resultStatement.next()) {
-                return resultStatement.getInt(1);
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return number;
-    }
-
-
     @Override
     public boolean create(Object obj) {
         User user = (User) obj;

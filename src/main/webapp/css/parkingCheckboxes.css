@@ -25,6 +25,7 @@
     font-family: "Open Sans", sans-serif;
 
 }
+
 #createButton2 {
     background-color: #39ace7;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -50,10 +51,12 @@ label {
 #totalSpots {
     width: 60px;
 }
+
 #inputLong {
     display: inline-block;
     width: 100px;
 }
+
 #inputLat {
     display: inline-block;
     width: 100px;
@@ -62,6 +65,7 @@ label {
 #parkingName {
     width: 260px;
 }
+
 #invalidInput {
     color: red;
 }
@@ -72,25 +76,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/electricity.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/electricity.png") no-repeat;
     cursor: pointer;
 }
 
 #electricity:checked + span {
-    background: url("../PicturesOfParkingServices/electricity2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/electricity2.png") no-repeat;
 }
+
 #electricity2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/electricity.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/electricity.png") no-repeat;
     cursor: pointer;
 }
 
 #electricity2:checked + span {
-    background: url("../PicturesOfParkingServices/electricity2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/electricity2.png") no-repeat;
 }
 
 #fence + span {
@@ -99,25 +104,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/fence.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/fence.png") no-repeat;
     cursor: pointer;
 }
 
 #fence:checked + span {
-    background: url("../PicturesOfParkingServices/fence2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/fence2.png") no-repeat;
 }
+
 #fence2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/fence.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/fence.png") no-repeat;
     cursor: pointer;
 }
 
 #fence2:checked + span {
-    background: url("../PicturesOfParkingServices/fence2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/fence2.png") no-repeat;
 }
 
 #food + span {
@@ -126,51 +132,54 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/food.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/food.png") no-repeat;
     cursor: pointer;
 }
 
 #food:checked + span {
-    background: url("../PicturesOfParkingServices/food2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/food2.png") no-repeat;
 }
+
 #food2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/food.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/food.png") no-repeat;
     cursor: pointer;
 }
 
 #food2:checked + span {
-    background: url("../PicturesOfParkingServices/food2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/food2.png") no-repeat;
 }
+
 #gasStation + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/gasStation.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/gasStation.png") no-repeat;
     cursor: pointer;
 }
 
 #gasStation:checked + span {
-    background: url("../PicturesOfParkingServices/gasStation2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/gasStation2.png") no-repeat;
 }
+
 #gasStation2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/gasStation.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/gasStation.png") no-repeat;
     cursor: pointer;
 }
 
 #gasStation2:checked + span {
-    background: url("../PicturesOfParkingServices/gasStation2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/gasStation2.png") no-repeat;
 }
 
 #guard + span {
@@ -179,25 +188,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/guard.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/guard.png") no-repeat;
     cursor: pointer;
 }
 
 #guard:checked + span {
-    background: url("../PicturesOfParkingServices/guard2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/guard2.png") no-repeat;
 }
+
 #guard2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/guard.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/guard.png") no-repeat;
     cursor: pointer;
 }
 
 #guard2:checked + span {
-    background: url("../PicturesOfParkingServices/guard2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/guard2.png") no-repeat;
 }
 
 #light + span {
@@ -206,25 +216,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/light.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/light.png") no-repeat;
     cursor: pointer;
 }
 
 #light:checked + span {
-    background: url("../PicturesOfParkingServices/light2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/light2.png") no-repeat;
 }
+
 #light2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/light.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/light.png") no-repeat;
     cursor: pointer;
 }
 
 #light2:checked + span {
-    background: url("../PicturesOfParkingServices/light2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/light2.png") no-repeat;
 }
 
 #lodging + span {
@@ -233,25 +244,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/lodging.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/lodging.png") no-repeat;
     cursor: pointer;
 }
 
 #lodging:checked + span {
-    background: url("../PicturesOfParkingServices/lodging2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/lodging2.png") no-repeat;
 }
+
 #lodging2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/lodging.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/lodging.png") no-repeat;
     cursor: pointer;
 }
 
 #lodging2:checked + span {
-    background: url("../PicturesOfParkingServices/lodging2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/lodging2.png") no-repeat;
 }
 
 #securityCameras + span {
@@ -260,25 +272,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/securityCameras.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/securityCameras.png") no-repeat;
     cursor: pointer;
 }
 
 #securityCameras:checked + span {
-    background: url("../PicturesOfParkingServices/securityCameras2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/securityCameras2.png") no-repeat;
 }
+
 #securityCameras2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/securityCameras.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/securityCameras.png") no-repeat;
     cursor: pointer;
 }
 
 #securityCameras2:checked + span {
-    background: url("../PicturesOfParkingServices/securityCameras2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/securityCameras2.png") no-repeat;
 }
 
 #service + span {
@@ -287,25 +300,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/service.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/service.png") no-repeat;
     cursor: pointer;
 }
 
 #service:checked + span {
-    background: url("../PicturesOfParkingServices/service2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/service2.png") no-repeat;
 }
+
 #service2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/service.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/service.png") no-repeat;
     cursor: pointer;
 }
 
 #service2:checked + span {
-    background: url("../PicturesOfParkingServices/service2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/service2.png") no-repeat;
 }
 
 #shower + span {
@@ -314,25 +328,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/shower.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/shower.png") no-repeat;
     cursor: pointer;
 }
 
 #shower:checked + span {
-    background: url("../PicturesOfParkingServices/shower2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/shower2.png") no-repeat;
 }
+
 #shower2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/shower.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/shower.png") no-repeat;
     cursor: pointer;
 }
 
 #shower2:checked + span {
-    background: url("../PicturesOfParkingServices/shower2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/shower2.png") no-repeat;
 }
 
 #store + span {
@@ -341,25 +356,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/store.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/store.png") no-repeat;
     cursor: pointer;
 }
 
 #store:checked + span {
-    background: url("../PicturesOfParkingServices/store2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/store2.png") no-repeat;
 }
+
 #store2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/store.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/store.png") no-repeat;
     cursor: pointer;
 }
 
 #store2:checked + span {
-    background: url("../PicturesOfParkingServices/store2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/store2.png") no-repeat;
 }
 
 #truckWash + span {
@@ -368,25 +384,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/truckWash.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/truckWash.png") no-repeat;
     cursor: pointer;
 }
 
 #truckWash:checked + span {
-    background: url("../PicturesOfParkingServices/truckWash2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/truckWash2.png") no-repeat;
 }
+
 #truckWash2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/truckWash.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/truckWash.png") no-repeat;
     cursor: pointer;
 }
 
 #truckWash2:checked + span {
-    background: url("../PicturesOfParkingServices/truckWash2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/truckWash2.png") no-repeat;
 }
 
 #water + span {
@@ -395,25 +412,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/water.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/water.png") no-repeat;
     cursor: pointer;
 }
 
 #water:checked + span {
-    background: url("../PicturesOfParkingServices/water2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/water2.png") no-repeat;
 }
+
 #water2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/water.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/water.png") no-repeat;
     cursor: pointer;
 }
 
 #water2:checked + span {
-    background: url("../PicturesOfParkingServices/water2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/water2.png") no-repeat;
 }
 
 #wc + span {
@@ -422,25 +440,26 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/wc.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/wc.png") no-repeat;
     cursor: pointer;
 }
 
 #wc:checked + span {
-    background: url("../PicturesOfParkingServices/wc2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/wc2.png") no-repeat;
 }
+
 #wc2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/wc.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/wc.png") no-repeat;
     cursor: pointer;
 }
 
 #wc2:checked + span {
-    background: url("../PicturesOfParkingServices/wc2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/wc2.png") no-repeat;
 }
 
 #wifi + span {
@@ -449,23 +468,24 @@ label {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/wifi.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/wifi.png") no-repeat;
     cursor: pointer;
 }
 
 #wifi:checked + span {
-    background: url("../PicturesOfParkingServices/wifi2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/wifi2.png") no-repeat;
 }
+
 #wifi2 + span {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url("../PicturesOfParkingServices/wifi.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/wifi.png") no-repeat;
     cursor: pointer;
 }
 
 #wifi2:checked + span {
-    background: url("../PicturesOfParkingServices/wifi2.png") no-repeat;
+    background: url("../resources/PicturesOfParkingServices/wifi2.png") no-repeat;
 }

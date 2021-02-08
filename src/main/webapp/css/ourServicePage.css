@@ -1,5 +1,5 @@
 html {
-    background-image: url("../resourses/darker-background-picture.jpg");
+    background-image: url("../resources/darker-background-picture.jpg");
     -webkit-background-size: 100%;
     background-color: #9fa1ac;
 
@@ -12,13 +12,15 @@ html {
     font-family: "Open Sans", sans-serif;
 
 }
+
 #topHeader {
     margin: 150px;
     text-align: center;
     color: white;
     font-family: "Open Sans", sans-serif
 }
-.advantages{
+
+.advantages {
     margin-left: 100px;
     display: inline-block;
     height: auto;
@@ -28,7 +30,8 @@ html {
     border-right-color: #ffffff;
     margin-top: 50px;
 }
-.advantagesLastElement{
+
+.advantagesLastElement {
     margin-left: 100px;
     display: inline-block;
     height: auto;
@@ -36,6 +39,7 @@ html {
     float: left;
     margin-top: 50px;
 }
+
 h1 {
     color: #fff;
     font-size: 50px;
@@ -44,6 +48,7 @@ h1 {
     text-decoration: none;
     font-family: "Open Sans", sans-serif;
 }
+
 h2 {
     color: #fff;
     font-size: 25px;
@@ -52,6 +57,7 @@ h2 {
     text-decoration: none;
     font-family: "Open Sans", sans-serif;
 }
+
 h3 {
     color: #fff;
     font-size: 18px;

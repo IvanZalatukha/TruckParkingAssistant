@@ -5,13 +5,17 @@
     position: relative;
 
 }
-#navbar li { display: inline-block; }
+
+#navbar li {
+    display: inline-block;
+}
+
 #navbar a {
     color: #fff;
     padding: 2px 10px;
     text-decoration: none;
     font-weight: bold;
-    font-size:22px;
+    font-size: 22px;
     text-align: center;
     font-family: "Open Sans", sans-serif;
     display: inline-block;
@@ -19,24 +23,26 @@
     border-right: 3px solid;
     border-right-color: #ffffff;
 }
+
 #lastOne {
     color: #fff;
     padding: 2px 10px;
     text-decoration: none;
     font-weight: bold;
-    font-size:22px;
+    font-size: 22px;
     text-align: center;
     font-family: "Open Sans", sans-serif;
     display: inline-block;
     border: none;
 
 }
-#logo a{
+
+#logo a {
     color: #fff;
     padding-left: 100px;
     text-decoration: none;
     font-weight: bold;
-    font-size:50px;
+    font-size: 50px;
     font-family: "Open Sans", sans-serif;
     float: left;
 }

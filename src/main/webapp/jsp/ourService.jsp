@@ -10,7 +10,7 @@
     <title>Title</title>
 </head>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ourServicePage.css">
-<jsp:include page="header.jsp" />
+<jsp:include page="header.jsp"/>
 <body>
 
 
