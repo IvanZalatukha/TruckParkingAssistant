@@ -11,6 +11,7 @@
 - Maven,
 - Apache Tomcat
 
+The choice of this technology stack is conditioned by project requirements.
 
 ### About:
 This web application is a diploma project for the course Java web development EPAM Minsk.
