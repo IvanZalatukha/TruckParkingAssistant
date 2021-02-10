@@ -40,8 +40,8 @@ public class CommandProvider {
 
     public Command getCommand(HttpServletRequest request) {
         Command command;
-        String commandParameter = request.getParameter("command");
         try {
+            String commandParameter = request.getParameter("command");
             command = commandMatching.get(commandParameter);
         } catch (IllegalArgumentException e) {
             command = commandMatching.get(CommandValue.ERROR.getValue());

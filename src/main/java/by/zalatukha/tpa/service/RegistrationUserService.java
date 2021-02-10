@@ -5,6 +5,7 @@ import by.zalatukha.tpa.validation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 /**
  * Designed to handle invalid input parameters coming from the registration page
  */

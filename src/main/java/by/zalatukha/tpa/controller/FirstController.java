@@ -13,10 +13,6 @@ import java.io.IOException;
 @WebServlet("/jsp/controller")
 public class FirstController extends HttpServlet {
 
-    public FirstController() {
-        super();
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
